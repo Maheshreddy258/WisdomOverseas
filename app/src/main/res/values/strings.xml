@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WisdomOverseas</string>
+    <string name="login_id">LOGIN ID</string>
+    <string name="enter_your_login_id">Enter Your login id</string>
+    <string name="enter_your_pwd">Enter Your Password</string>
+    <string name="title_activity_forgotpwd">forgotpwdActivity</string>
+
+</resources>

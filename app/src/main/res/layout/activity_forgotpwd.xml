@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbg"
+    tools:context=".LoginActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="5dp"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/ftxtlogin"
+                        android:layout_width="250dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/Roboto-Light"
+                        android:text="@string/login_id"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="2dp"
+                        android:id="@+id/fetlogin"
+                        android:hint="Enter Your Login id"
+                        android:textSize="13dp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="20dp"
+                        android:textColor="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimaryDark"/>
+
+
+
+
+                    <Button
+                        android:id="@+id/btnfpwd"
+                        android:layout_width="300dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:textColor="#ffffff"
+                        android:background="@drawable/mybutton"
+                        android:text="Proceed"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/Roboto-Regular"
+                        android:textAllCaps="false"/>
+
+
+
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
