@@ -5,4 +5,22 @@
     <string name="enter_your_pwd">Enter Your Password</string>
     <string name="title_activity_forgotpwd">forgotpwdActivity</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="enter_your_login_id2">Enter Your Login id</string>
+    <string name="password">PASSWORD</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">FORGOT PASSWORD</string>
+    <string name="no_internet">Please check your Internet connection</string>
+    <string name="student_name">Student name</string>
+    <string name="application_date">Application Date:</string>
+    <string name="remarks">Remarks:</string>
+    <string name="please_submit_the_concerened_documents">please Submit the concerened documents</string>
+    <string name="status">Status:</string>
+    <string name="date">Date</string>
+    <string name="update">update</string>
+    <string name="todo">TODO</string>
+    <string name="title_activity_new_info">NewInfoActivity</string>
+
 </resources>

@@ -12,4 +12,17 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="TextAppearance.AppCompat.Caption" parent="Base.TextAppearance.AppCompat.Caption" />
+
+    <style name="tabText">
+        <item name="android:textColor">@drawable/tab_text_color</item>
+
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>

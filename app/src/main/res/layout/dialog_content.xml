@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+           android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialoguecontent"
+            android:text="No Data Found!!"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialogcontent2"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:text="IF You Want Create New !! "
+            android:layout_marginStart="@dimen/_8sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+    <Button
+            android:id="@+id/btncreate"
+            android:layout_width="@dimen/_53sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_51sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Create"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_12sdp" />
+
+        <Button
+            android:id="@+id/btncancel"
+            android:layout_width="@dimen/_53sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_51sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_12sdp" />
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

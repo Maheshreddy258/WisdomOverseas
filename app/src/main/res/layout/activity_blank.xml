@@ -1,0 +1,2905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.InfoActivity"
+    android:focusableInTouchMode="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/tool"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_46sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvinfosname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="Student Name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:inputType="text"
+                    android:id="@+id/etinfosname"
+                    android:hint="Enter Student Name"
+                    android:background="@android:color/transparent"
+                    android:textSize="@dimen/_13sdp"/>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfocontactnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="Contact Number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:id="@+id/etinfocontactnumber"
+                    android:hint="Enter Contact Number"
+                    android:background="@android:color/transparent"
+                    android:textSize="@dimen/_13sdp"/>
+
+               <!-- <EditText
+                    android:id="@+id/etinfosname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/opensans_bold"
+                    android:hint="Enter Student name"
+                    android:inputType="text"
+                    android:textSize="@dimen/_13sdp" />-->
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfogender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Gender"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupgen"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/male"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Male"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/female"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Female"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfoloc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Location"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfoloc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Location"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfoarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Area Name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfoarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Area Name"
+                    android:maxLength="25"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="City"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Cityname"
+                    android:maxLength="25"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfostdaltcontact"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Alternative contact Number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfoaltcontactnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Contact Number"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfoqualification"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Qualification"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupqual"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/tenth"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="SSC "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/Inter"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Inter"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/graduation"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Graduation"
+                        android:textSize="@dimen/_15sdp" />
+                </RadioGroup>
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfotenthpercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="SSC MArks(%)"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfotenthpercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Tenth Percentage"
+                    android:maxLength="25"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfointerestcourses"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Interested Courses"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfointerestcourses"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Interested Courses"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfointerestedbranch"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Interested Branch"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/etinfointerestedbranch"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:hint="Enter Interested Branch"
+                    android:maxLength="25"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfoentranceexam"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Entrance Exams"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/etinfoentranceexam"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:hint="Enter Entrance Exam"
+                    android:maxLength="25"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfoentrancequal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Entrance Qualification"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/etinfoentrancequal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:hint="Enter Entrance Qualification"
+                    android:maxLength="25"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfointerpercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Inter MArks(%)"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfointerpercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Inter Percentage"
+                    android:maxLength="25"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfointercourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Inter Course"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/infospinnerintercourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <EditText
+                    android:id="@+id/etinfointercourseothers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Inter Course"
+                    android:maxLength="25"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfointerpassoutyear"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Inter Passout year"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfointerpassoutyr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Inter Passout year"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfointerinterestedcourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Interested Courses"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/infospinnerinterintrestedcourses"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+                <EditText
+                    android:id="@+id/etinfospinnerinterestedcourseothers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Inter Course"
+                    android:maxLength="25"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfoanyentrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:text="Attempt Any Entrance"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupanyentrance"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/yesrb4"
+                        android:layout_width="227dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Yes"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/norb4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="No"
+                        android:textSize="@dimen/_15sdp" />
+                </RadioGroup>
+
+                <Spinner
+                    android:id="@+id/infospinnerattempts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+
+                <EditText
+                    android:id="@+id/etinfoanyentranceexpectedmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:hint="Enter Expected marks" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <EditText
+                    android:id="@+id/etinfoanyentrancemarksobtained"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:hint="Enter marks Obtained" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <EditText
+                    android:id="@+id/etinfoanyentrancepreviousmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="number"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:hint="Enter Previous marks" />
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfouniversity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="University"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfouniversity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter University"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfodegree"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Degree"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfodegree"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Degree"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfodegreemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Degree marks"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfodegreemarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Degree marks"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfograduationpassyr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Graduation Pass year"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfograduationpassyr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Graduation Pass year"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfograduationscore"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Score"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfograduationscore"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Graduation Score"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfograduationInterestedcoourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Interested Course"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <!--
+                                <Spinner
+                                    android:id="@+id/infospinnergraduationinterestedcourse"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:layout_marginBottom="@dimen/_13sdp"
+                                    android:textSize="@dimen/_5sdp"
+                                    android:drawSelectorOnTop="true"
+                                    android:layout_centerHorizontal="true"/>-->
+
+
+                <EditText
+                    android:id="@+id/etinfograduationInterestedcoourseothers"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Graduation Course"
+                    android:maxLength="15"
+                    android:inputType="text"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinfocaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Caste"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupreservation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/rboc"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="OC "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/rbbc"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="BC"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/rbsc"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="SC"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/rbst"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="ST"
+                        android:textSize="@dimen/_15sdp" />
+
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radioGroupsubreservation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/A"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="A "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/B"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="B"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/c"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="C"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/D"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="D"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfosubcaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Sub Caste"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfosubcaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Subcaste"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfostatesofinterest"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="States of Interest"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupstate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/local"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Local"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/Abroad"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Abroad"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/statelongterm"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Long Term"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfolocalstate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="State"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/infospinnerstate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinforegistrationtest"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Entrance Test"
+                    android:textAllCaps="true"
+                    android:textColor="@color/mandatory"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinforegistrationtest"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Entrance Test"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinforegistrationtestmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Entrance Test Marks"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinforegistrationtestmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Entrance Test Marks"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfobudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Budget"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfobudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Budget"
+                    android:inputType="number"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfopname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Father Name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfopname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Father name"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfomname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Mother Name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfomname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter mother name"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinfoparentphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Parent Contact Number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <EditText
+                    android:id="@+id/etinfoparentphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Parent Contact number"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfoparentaltphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Mother Contact Number"
+
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <EditText
+                    android:id="@+id/etinfomotherphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Mother Contact number"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfocupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Father Ocupation"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupfatheroccupation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/fatherjob"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Job "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/fatherbussiness"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Bussiness"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/ffarmer"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Farmer"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etinfowhichbussiness"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Bussiness"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinfosector"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Sector"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupsector"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/infopvt"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Private "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/infogovt"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Govt"
+                        android:textSize="@dimen/_15sdp"/>
+                    <!--    <RadioButton
+                            android:id="@+id/infoown"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:scaleX="0.7"
+                            android:fontFamily="@font/roboto_medium"
+                            android:scaleY="0.7"
+                            android:text="Own"
+                            android:textSize="@dimen/_15sdp" />-->
+
+
+
+                </RadioGroup>
+                <EditText
+                    android:id="@+id/etinfowhichgovt"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Department"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfomotherocupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Mother Ocupation"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupmotheroccupation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/motherjob"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Job "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/housewife"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+
+                        android:text="House Wife"
+                        android:textSize="@dimen/_15sdp" />
+
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinfomothersector"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Mother Sector"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupmothersector"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/motherinfopvt"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Private "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/motherinfogovt"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Govt"
+                        android:textSize="@dimen/_15sdp"/>
+                    <!-- <RadioButton
+                         android:id="@+id/motherinfoown"
+                         android:layout_width="@dimen/_100sdp"
+                         android:layout_height="wrap_content"
+                         android:layout_weight="1"
+                         android:checked="false"
+                         android:scaleX="0.7"
+                         android:fontFamily="@font/roboto_medium"
+                         android:scaleY="0.7"
+                         android:text="Own"
+                         android:textSize="@dimen/_15sdp" />-->
+
+
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etinfomotherwhichgovt"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Department"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinfointrestedareas"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Intrested Areas"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupintrestedarea"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/infointlongterm"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Long Term"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/infoshortterm"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Short Term"
+                        android:textSize="@dimen/_15sdp"/>
+
+
+
+
+                </RadioGroup>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvfamilyinfochilds"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="How many Childrens?"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/infospinnerCildren"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true">
+
+                </Spinner>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfoincomeinlakhs"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Father Income"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfoincomeinlakhs"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Father Income In Lakhs"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfomotherincome"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Mother Income"
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinfomotherincome"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Mother Income"
+                    android:inputType="text"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfocountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:text="Interest Country"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <Spinner
+                    android:id="@+id/infospinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true"/>
+
+
+                <EditText
+                    android:id="@+id/etinfocountryother"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Country"
+                    android:inputType="text"
+                    android:maxLength="15"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfoabroadbudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Budget in Abroad"
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etinfoabroadbudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Budget"
+                    android:inputType="number"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+
+                <TextView
+                    android:id="@+id/tvinfocounsul"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:text="Approached  any counsultancy"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <RadioGroup
+                    android:id="@+id/radioGroupconsultancy"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/parent"
+                        android:layout_width="227dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Parent"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/consultancy"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Counsultancy"
+                        android:textSize="@dimen/_15sdp" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etinfoconsulname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:hint="Name of the counsultancy"
+                    android:inputType="text"
+                    android:textSize="@dimen/_9sdp"
+
+                    android:background="@android:color/transparent"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinfoabroad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:text="Any of the sibilings studying  abroad"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroup5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/yesrb2"
+                        android:layout_width="227dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Yes"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/norb2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="No"
+                        android:textSize="@dimen/_15sdp" />
+                </RadioGroup>
+                <EditText
+                    android:id="@+id/etinfoabroad"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="text"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:hint="Please specify College &amp; Country" />
+                <EditText
+                    android:id="@+id/etinfosibilingfee"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="text"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:hint="Please Enter sibilings fee" />
+                <EditText
+                    android:id="@+id/etinfosibilingCourseduration"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp"
+                    android:inputType="text"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:hint="Please Enter sibilings Course " />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinfoofficevisittype"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Visit Type"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+
+
+                <!--<RadioGroup
+                    android:id="@+id/radioGroupvisittype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <RadioButton
+                        android:id="@+id/house"
+                        android:layout_width="73dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="House Visit "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/Officevisit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Office visit"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/personal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="personal"
+                        android:textSize="@dimen/_15sdp" />
+                </RadioGroup>
+-->
+                <RadioGroup
+                    android:id="@+id/radioGroupvisittype"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/house"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="House Visit"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/Officevisit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Office visit"
+                        android:textSize="@dimen/_15sdp" />
+                    <!-- <RadioButton
+                         android:id="@+id/personal"
+                         android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_weight="1"
+                         android:scaleX="0.7"
+                         android:scaleY="0.7"
+                         android:fontFamily="@font/roboto_medium"
+                         android:text="personal"
+                         android:textSize="@dimen/_15sdp" />-->
+                </RadioGroup>
+                <EditText
+                    android:id="@+id/etinfovisitmsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:hint="Please Enter visit message"
+
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_regular" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinfoofficevisit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Visit Status"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_51sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup6"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:weightSum="2">
+
+                        <RadioButton
+                            android:id="@+id/yesrb3"
+                            android:layout_width="73dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scaleX="0.7"
+                            android:scaleY="0.7"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Yes "
+                            android:textSize="@dimen/_15sdp" />
+
+                        <RadioButton
+                            android:id="@+id/norb3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:scaleX="0.7"
+                            android:scaleY="0.7"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="No"
+                            android:textSize="@dimen/_15sdp" />
+                    </RadioGroup>
+
+
+                    <!--     <EditText
+                             android:id="@+id/etinfotime"
+                             android:layout_width="match_parent"
+                             android:layout_height="@dimen/_30sdp"
+                             android:layout_marginStart="@dimen/_8sdp"
+                             android:textSize="@dimen/_10sdp"
+                             android:layout_gravity="center"
+                             android:layout_marginEnd="@dimen/_20sdp"
+                             android:editable="false"
+                             android:hint="Please Date &amp; time"
+                             android:focusable="false"/>-->
+
+                    <EditText
+                        android:id="@+id/etinfovisitdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:hint="Set Visit Date"
+                        android:textAllCaps="true"
+                        android:focusable="false"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/opensans_regular" />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinforemtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:text="Feedback"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <!--  <EditText
+                      android:id="@+id/etinfofeedbacktext"
+                      android:layout_width="match_parent"
+                      android:layout_height="@dimen/_30sdp"
+                      android:layout_marginStart="@dimen/_9sdp"
+                      android:hint="Enter Feedback"
+                      android:textAllCaps="true"
+                      android:maxLines="5"
+                      android:layout_weight="1"
+                      android:layout_marginTop="@dimen/_8sdp"
+                      android:minLines="1"
+                      android:inputType="text"
+                      android:textColor="@color/black"
+                      android:textSize="@dimen/_10sdp"
+                      android:fontFamily="@font/opensans_regular" />
+  -->
+                <!-- <Button
+                     android:id="@+id/btninfoadd"
+                     android:layout_width="@dimen/_50sdp"
+                     android:layout_height="@dimen/_41sdp"
+                     android:layout_marginStart="@dimen/_20sdp"
+                     android:layout_marginTop="@dimen/_30sdp"
+                     android:layout_marginBottom="@dimen/_47sdp"
+                     android:backgroundTint="@color/colorPrimaryDark"
+                     android:text="Add"
+                     android:layout_weight="1"
+                     android:textAllCaps="true"
+                     android:textColor="@color/white" />-->
+
+
+
+                <!--         </LinearLayout>-->
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:id="@+id/linearadd"
+                    android:orientation="vertical" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal" >
+                        <EditText
+                            android:id="@+id/etinfofeedbacktext"
+                            android:layout_width="@dimen/_104sdp"
+                            android:layout_height="match_parent"
+                            android:hint="Enter Feedback"
+                            android:textAllCaps="true"
+                            android:maxLines="5"
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:minLines="1"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_10sdp"
+                            android:fontFamily="@font/opensans_regular" />
+
+                        <!--   <Button
+                               android:id="@+id/delete_button"
+                               android:layout_width="0dp"
+                               android:layout_height="40dp"
+                               android:layout_weight="1"
+                               android:background="@android:drawable/ic_delete"
+                             />-->
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/btninfoadd"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="#555"
+                        android:layout_gravity="center"
+                        android:textColor="#FFF"
+                        android:text="Add"
+                        android:paddingLeft="5dp"/>
+                </LinearLayout>
+
+
+
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/tvinfostatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_19sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:text="Status"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginStart="@dimen/_8sdp">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="0dp"
+                                android:weightSum="3"
+                                android:id="@+id/radioGroup"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rbintersted"
+                                    android:layout_width="@dimen/_120sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_weight="0.7"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="Int"
+                                    android:checked="false"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:textSize="@dimen/_15sdp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbnotinterested"
+                                    android:layout_width="@dimen/_120sdp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_weight="0.8"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="Not Int"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:textSize="@dimen/_15sdp" />
+
+
+                                <RadioButton
+                                    android:id="@+id/rbcallback"
+                                    android:layout_width="@dimen/_130sdp"
+                                    android:layout_height="@dimen/_20sdp"
+
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_20sdp"
+                                    android:layout_weight="1"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:text="Call Back"
+                                    android:textSize="@dimen/_15sdp" />
+                            </RadioGroup>
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="0dp"
+                                android:weightSum="3"
+                                android:id="@+id/radioGroup2"
+                                android:layout_below="@+id/radioGroup"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/rbnottresponding"
+                                    android:layout_width="@dimen/_97sdp"
+                                    android:layout_height="@dimen/_23sdp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:scaleX="0.7"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleY="0.7"
+                                    android:text="NR"
+                                    android:textSize="@dimen/_15sdp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbswitchoff"
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_marginStart="@dimen/_25sdp"
+                                    android:layout_marginRight="@dimen/_4sdp"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_2sdp"
+                                    android:layout_weight="0.5"
+                                    android:scaleX="0.7"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleY="0.7"
+                                    android:text="SO"
+                                    android:textSize="@dimen/_15sdp" />
+
+
+                                <RadioButton
+                                    android:id="@+id/rboutofcoverage"
+                                    android:layout_width="@dimen/_127sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_marginStart="@dimen/_25sdp"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_weight="1"
+                                    android:scaleX="0.7"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleY="0.7"
+                                    android:text="OC"
+                                    android:textSize="@dimen/_15sdp" />
+                            </RadioGroup>
+
+                            <RadioButton
+                                android:id="@+id/rbothers"
+                                android:layout_width="@dimen/_77sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/radioGroup2"
+                                android:layout_marginStart="@dimen/_3sdp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="@dimen/_20sdp"
+                                android:layout_weight="1"
+                                android:scaleX="0.7"
+                                android:scaleY="0.7"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="Others"
+                                android:textSize="@dimen/_15sdp" />
+                            <EditText
+                                android:layout_width="@dimen/_200sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_below="@+id/radioGroup2"
+                                android:singleLine="true"
+                                android:id="@+id/etinfootherspecify"
+                                android:textSize="@dimen/_10sdp"
+                                android:inputType="text"
+                                android:hint="Please Specify"
+                                android:focusable="false"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_90sdp"/>
+                            <EditText
+                                android:layout_width="@dimen/_200sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_below="@+id/radioGroup2"
+                                android:singleLine="true"
+                                android:id="@+id/etinfootherstatus"
+                                android:textSize="@dimen/_10sdp"
+                                android:inputType="text"
+                                android:hint="Please Enter Any Other Status"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:layout_marginStart="@dimen/_90sdp"/>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfoqual"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Course Type"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroup3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/shortterm"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Short Term "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/longterm"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Long Term"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/tvinfoque"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Knowledge about abroad course/education?"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/yesrb"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:textAllCaps="true"
+                        android:text=" yes"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/norb"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAllCaps="true"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="No "
+
+                        android:textSize="@dimen/_15sdp" />
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinfofollowup"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Follow Up"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroupfollowup"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/followupyes"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="True"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/followupno"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="False"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvinforeminderconfirmation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Set Reminder"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <!--
+                                <RadioGroup
+                                    android:id="@+id/radioGroupreminder"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_9sdp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="1"
+                                    android:layout_marginBottom="@dimen/_8sdp">
+
+                                    <RadioButton
+                                        android:id="@+id/remyes"
+                                        android:layout_width="@dimen/_100sdp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:checked="false"
+                                        android:scaleX="0.7"
+                                        android:fontFamily="@font/roboto_medium"
+                                        android:scaleY="0.7"
+                                        android:text="Yes"
+                                        android:textSize="@dimen/_15sdp" />
+
+
+
+                                </RadioGroup>-->
+
+                <CheckBox
+                    android:id="@+id/remyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes" />
+
+
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinforeminderdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Remainder"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinforeminderdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:hint="Set Reminder Visit Date"
+                    android:textAllCaps="true"
+                    android:focusable="false"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_regular" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinforemindertext"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Remainder Text"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinforemindertext"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/opensans_regular"
+                    android:hint="Enter Reminder Text"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_64sdp"
+                    android:textColorHint="@color/grrey">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etinfoRemarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60sdp"
+                        android:hint="Conclusion"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:minLines="1"
+                        android:textColor="#333" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_84sdp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/btninfosubmit"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_41sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_47sdp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:text="Submit"
+                        android:layout_weight="1"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/btninfocancel"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_41sdp"
+                        android:layout_marginEnd="@dimen/_13sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_57sdp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:text="Cancel"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/btninfoupload"
+                        android:visibility="gone"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_41sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_47sdp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:text="Upload"
+                        android:layout_weight="1"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

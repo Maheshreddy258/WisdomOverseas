@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.StudentInfoFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_6sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tvstudentinfoexamentrance"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Entrance Exam Course"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/stdinforadioGroup1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/shortterm"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Short Term "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/longterm"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Long Term"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvstdinfopassoutyr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Student Pass Out Year"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etstdinfopassyr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:inputType="number"
+                    android:hint="Enter Student Pass out year"
+                   android:maxLength="4"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvstdinfoyrgap"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Gaps in education"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/stdinfospinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true">
+
+                </Spinner>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinfoneertmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="NEET Marks"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfoneetmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Neet marks"
+                    android:textAllCaps="true"
+                    android:maxLength="7"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinforank"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Rank"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinforank"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Student Rank"
+                    android:maxLength="7"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinforankattempts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Rank Attempts"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinforankattempts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:inputType="number"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Student rank attempts"
+                    android:maxLength="7"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstudentinfoattempts"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Attended any entrance test"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/stdinforadioGroup2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/stdinfoyes"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Yes "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/stdinfono"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="No"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstudentinfoloc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Preffred Location"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/stdinforadioGroup3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/stdinfolocal"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Local"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/stdinfoabroad"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Abroad"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvstdinfoqualified"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Qualified Test"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfoqualified"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:hint="Enter Qualified test name"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinfossc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="SSC(%)"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfossc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter SSC Percentage"
+                    android:maxLength="4"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinfointer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Inter(%)"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfointer"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Inter Percentage"
+                    android:maxLength="4"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvstdinfointeryr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Inter Passout yr"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfointeryr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Inter Passout yr"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvstdinfoarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Area"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfoarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                    android:hint="Enter Area"
+                    android:maxLength="10"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvstdinfocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="City"
+
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter City name"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                    android:maxLength="10"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinfostate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="State"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfostate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter State"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinfocountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Country"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfocountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Country"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvstdinfoaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Address"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/etstdinfoaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Address"
+                    android:maxLength="40"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+                    android:maxLines="5"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_84sdp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/_50sdp"
+                    android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnstdinfosave"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_41sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_47sdp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:text="Save"
+                    android:layout_weight="1"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/btnstdinfnext"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_41sdp"
+                        android:layout_marginStart="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_13sdp"
+                        android:layout_marginBottom="@dimen/_47sdp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:text="Next"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

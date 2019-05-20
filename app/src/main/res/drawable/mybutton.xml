@@ -6,7 +6,7 @@
          android:shape="rectangle" android:padding="10dp">
 
          <solid android:color="#f5a833"/>
-         <corners android:radius="70dp"/>
+         <corners android:radius="0dp"/>
      </shape>
     </item>
 </selector>

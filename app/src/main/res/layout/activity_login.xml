@@ -4,31 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbg"
-    tools:context=".LoginActivity">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".activities.LoginActivity">
+
+    <!--<ProgressBar
+        android:id="@+id/login_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />-->
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+
+<ImageView
+    android:layout_width="@dimen/_157sdp"
+    android:layout_height="@dimen/_150sdp"
+    android:layout_marginTop="@dimen/_47sdp"
+    android:layout_gravity="center"
+    android:id="@+id/imglogo"
+    android:background="@drawable/wisdomlogo"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="5dp"
-        app:cardCornerRadius="20dp">
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_9sdp"
+        android:layout_weight="1.5">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_444sdp"
+            android:layout_alignStart="@+id/cv1"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -38,88 +67,137 @@
 
                     <TextView
                         android:id="@+id/txtlogin"
-                        android:layout_width="250dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="30dp"
-                        android:fontFamily="@font/Roboto-Light"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/roboto_medium"
                         android:text="@string/login_id"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_10sdp" />
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="2dp"
+               <!--     <EditText
                         android:id="@+id/etlogin"
-                        android:hint="Enter Your Login id"
-                        android:textSize="13dp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_1sdp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:hint="@string/enter_your_login_id2"
+                        android:maxEms="1"
+                        android:minLines="1"
+                        android:maxLength="10"
+                        android:singleLine="true"
                         android:textColor="@color/colorPrimary"
-                        android:backgroundTint="@color/colorPrimaryDark"/>
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />-->
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/etlogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Your Login Id"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/opensans_regular"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:inputType="text"/>
+                    </android.support.design.widget.TextInputLayout>
 
                     <TextView
                         android:id="@+id/txtpwd"
-                        android:layout_width="250dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/Roboto-Light"
-                        android:text="PASSWORD"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/password"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_10sdp"
+                       />
 
-                    <EditText
+                    <!--<EditText
                         android:id="@+id/etpwd"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="2dp"
-                        android:hint="@string/enter_your_pwd"
-                        android:textSize="13dp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="20dp"
-                        android:textColor="@color/colorPrimary"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:backgroundTint="@color/colorPrimaryDark"
-                        android:inputType=""
-                        android:autofillHints=""
-                        android:importantForAutofill="no" tools:targetApi="o" />
+                        android:hint="@string/enter_your_pwd"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLength="8"
+                        android:maxEms="1"
+                         app:passwordToggleEnabled="true"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold"
+                        tools:targetApi="o" />-->
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/etPasswordLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        app:passwordToggleEnabled="true">
 
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/etpwd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Your Password"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/opensans_regular"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_1sdp"
+                            android:inputType="textPassword"/>
+                    </android.support.design.widget.TextInputLayout>
                     <Button
                         android:id="@+id/btnlogin"
-                        android:layout_width="300dp"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_height="50dp"
-                        android:padding="10dp"
-                        android:textColor="#ffffff"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginStart="@dimen/_51sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_40sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
                         android:background="@drawable/mybutton"
-                        android:text="Login"
-                        android:textSize="20dp"
-                        android:fontFamily="@font/Roboto-Regular"
-                        android:textAllCaps="false"/>
+                        android:fontFamily="@font/opensans_regular"
+                        android:text="@string/login"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_15sdp" />
 
                     <TextView
                         android:id="@+id/txtfpwd"
-                        android:layout_width="250dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="90dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="30dp"
-                        android:fontFamily="@font/Roboto-Light"
-                        android:text="FORGOT PASSWORD"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_80sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_80sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/forgot_password"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_12sdp"
+                         />
 
 
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_Login_Snackbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/fab_margin"
+        android:visibility="gone" />
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.HistoryActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/tool"
+        />
+    </android.support.design.widget.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/historyprogressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+       android:layout_marginTop="@dimen/_45sdp"
+        android:orientation="horizontal"
+        android:id="@+id/line5"
+        android:weightSum="3"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="match_parent"
+            android:id="@+id/tvtophistoryname"
+            android:text="Student Name"
+            android:singleLine="true"
+            android:textAllCaps="true"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_9sdp"/>
+
+        <TextView
+            android:layout_width="@dimen/_91sdp"
+            android:layout_height="match_parent"
+            android:text="Calldate"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:id="@+id/tvtopcallhistorycalldate"
+            android:textColor="@color/black"
+            android:textAllCaps="true"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_10sdp"/>
+        <TextView
+            android:layout_width="@dimen/_91sdp"
+            android:layout_height="match_parent"
+            android:text="status"
+            android:layout_weight="1"
+            android:id="@+id/tvtopHistorystatus"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_10sdp"/>
+    <!--    <TextView
+            android:layout_width="@dimen/_91sdp"
+            android:layout_height="match_parent"
+            android:text="Call Duration"
+            android:layout_weight="1"
+            android:id="@+id/tvtopHistorycallduration"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textAllCaps="true"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_10sdp"/>-->
+
+
+    </LinearLayout>
+
+<!--        <TextView
+            android:id="@+id/tvtophistoryname"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="name"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/allcalls"/>-->
+
+
+        <!--<TextView
+            android:id="@+id/tvtopcallhistorycalldate"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Calldate"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/allcalls"/>-->
+
+
+
+<!--        <TextView
+            android:id="@+id/tvtopHistorystatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/_55sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="status"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_12sdp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/allcalls"/>-->
+
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pendingrecyclerview"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_75sdp">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

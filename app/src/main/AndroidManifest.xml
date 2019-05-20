@@ -2,23 +2,104 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mahesh.wisdomoverseas">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo2"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="views.SplashActivity">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activities.BlankActivity"></activity>
+        <activity android:name=".activities.uploadActivity" />
+        <activity
+            android:name=".activities.SearchActivity2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Notification"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.RecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.IncomingcallsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CallBacksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.IntrestedCallsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.PendingRemindersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReminderNewInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.NewInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.RemainderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.HistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.InfoReminder"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="views.MainActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".forgotpwdActivity"></activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activities.forgotpwdActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activities.DashBoardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.TrackStatus"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.InfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".activities.TodayCalls"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Report"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.RemainderActivity"
+    android:background="@color/bgdb">
+
+    <ProgressBar
+        android:id="@+id/reminder_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/tool"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <devs.mulham.horizontalcalendar.HorizontalCalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textColorNormal="#0E0C0C"
+        app:selectedDateBackground="@color/employee"
+        app:colorMiddleTextSelected="@color/white"
+        android:layout_marginTop="@dimen/_43sdp"
+        app:textColorSelected="@color/white"
+        app:selectorColor="#0A0909"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_below="@+id/calendarView"
+        android:orientation="horizontal"
+        android:id="@+id/line6"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="match_parent"
+            android:text="Student Name"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_9sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_9sdp"/>
+
+        <TextView
+            android:layout_width="@dimen/_91sdp"
+            android:layout_height="match_parent"
+            android:text="Remainder Time"
+            android:textColor="@color/black"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_9sdp"/>
+
+
+    </LinearLayout>
+
+<android.support.v7.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/line6"
+    android:id="@+id/recycleremainders">
+
+</android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

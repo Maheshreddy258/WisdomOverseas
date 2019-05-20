@@ -2,6 +2,19 @@
 <resources>
     <color name="colorPrimary">#17145b</color>
     <color name="colorPrimaryDark">#050221</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#FF9800</color>
     <color name="bg">#4c348e</color>
+    <color name="bgdb">#efeef1</color>
+    <color name="employee">#F2B124</color>
+    <color name="white">#fdfdfb</color>
+    <color name="black">#0d0d0d</color>
+    <color name="grrey">#B4B0B0</color>
+    <color name="PENDING">#FFEB3B</color>
+    <color name="PROCESSING">#DF1212</color>
+    <color name="JOINED">#4CAF50</color>
+    <color name="allcalls">#333333</color>
+    <color name="report">#f0f0f0</color>
+    <color name="mandatory">#E40B0B</color>
+    <color name="background">#dddddd</color>
+    <color name="shimmer">#dddddd</color>
 </resources>
