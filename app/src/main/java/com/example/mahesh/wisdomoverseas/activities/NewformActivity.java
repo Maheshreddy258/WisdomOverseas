@@ -35,6 +35,7 @@ import android.widget.Toast;
 
 import com.example.mahesh.wisdomoverseas.R;
 import com.example.mahesh.wisdomoverseas.adapters.IncomingcallAdapter;
+import com.example.mahesh.wisdomoverseas.models.Newresponses.CheckResponse;
 import com.example.mahesh.wisdomoverseas.models.Newresponses.IncomingResponse;
 import com.example.mahesh.wisdomoverseas.models.Newresponses.NewAllCallsResponse;
 import com.example.mahesh.wisdomoverseas.models.Newresponses.NewCallBacksResponse;
@@ -67,16 +68,16 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             mGradDegree, mGradDegreemarks, mGradpassyr, mGradscore, mGradInterestedCourse, mCaste, mSubCaste, mGender, mLocation, mStateofInterest, mState,
             mRegistrationTest, mLocalBudget, mParentContact, mAltNumber, mSector, mIncomeInlakhs, mAbroadInterestCountry, mAbroadBudget, mMotherOccupation,
             mVisittype, mMotherjobsector, mFollowup, mCity, mAreaname, mStdAltcontact, mMothername, mChildren, mRemtext2, mEntrancetestmarks, mMotherIncome,
-            mIntrestedareas,mRemindersetting,mTvcontactnumber,mTvSource;
-    Button mBtnsubmit, mAdd, mBtnCancel,mBtnUpload,mBtnCheck;
+            mIntrestedareas, mRemindersetting, mTvcontactnumber, mTvSource;
+    Button mBtnsubmit, mAdd, mBtnCancel, mBtnUpload, mBtnCheck;
     RadioGroup mRadiogrp1, mRadiogrp2, mRadiogrp3, mRadiogrp4, mRadiogrp5, mRadiogrp6, mRadiogrptenth, mRadioGrpInterAttempted,
             mRadiogrpCaste, mRadiogrpSubcaste, mRadioGrpGender, mRadioGrpStateofInterest, mFatherOcupation, mRadioGrpSector, mRadioGrpApproached,
-            mRadioGrpmotheroccupation, mRadiogrpvisittype, mRadioGrpmotherjobsector, mRadiogrpfollowup, mRadioGrpintrestedarea,mRadioGrpreminderset;
+            mRadioGrpmotheroccupation, mRadiogrpvisittype, mRadioGrpmotherjobsector, mRadiogrpfollowup, mRadioGrpintrestedarea, mRadioGrpreminderset;
     RadioButton mSelected1, mSelected2, mSelected3, mSelected4, mSelected5, mSelected6, mSelected7, rbintersted,
             rbnotinterested, rbcallback, rbnottresponding, rbswitchoff, rboutofcoverage, rbothers, shortterm,
             longterm, yes, no, yes1, yes2, no1, no2, ssc, inter, graduation, yes4, no4, rbsc, rbst, rbbc, rboc, a, b, c, d, male, female,
             local, abroad, fatherjob, bussiness, farmer, pvt, govt, own, mjob, housewife, house, rbofficevisit, personal, motherpvt, mothergovt, motherown,
-            followupyes, followupno, intlongterm, intshortterm,reminderset,rbstateofintrestlongterm,appparent,appcounsultancy,yesrb3,norb3,yesknow,noknow;
+            followupyes, followupno, intlongterm, intshortterm, reminderset, rbstateofintrestlongterm, appparent, appcounsultancy, yesrb3, norb3, yesknow, noknow;
     Spinner mSpinnerCountry, mSpinnerRem, mSpinnerInterInterestedCourse, mSpinnerinterentranceAttempts, mSpinnerGradInterstedCourse,
             mSpinnerInterCourse, mSpinnerStates, mSpinnerChildren;
     EditText mEtstdname, mEtOthers, mEtremtext, mEtPname, mEtPocupation, mEtcounsul, mEtabroad, mEtSpecifydate, mEtremainderdate, mEtpphno,
@@ -85,24 +86,29 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             mEtGradDegree, mEtGradDegreemarks, mEtGradpassyr, mEtGradScore, mEtGradInterestedCourse, mEtsubcaste, mEtLocation, mEtRegistrationTest,
             mEtLocalBudget, mEtParentAlt, mEtIncomeinLakhs, mEtCountryOthers, mEtAbroadBudget, mEtSibilingsfee, mEtSibilingsDuration, mEtAreaname, mEtCity,
             mEtStdaltcontact, mEtmothername, mEtvisittext, mEtremindertext, mEtEntrancetestmarks, mEtfeedback, mEtvisitmessage, mEtGovtjobtitle,
-            mEtmotherincome, mEtotherstatus,mEtfatherbussiness,mEtmotherdepartment,mEtcontactnumber,mEtSource;
+            mEtmotherincome, mEtotherstatus, mEtfatherbussiness, mEtmotherdepartment, mEtcontactnumber, mEtSource;
     String status = "";
     int int_status = 0;
     String qulification;
     String Knowledgeonabroad;
     String officevisit, officevisittype;
     String SSC, Inter, Graduation, caste, subcaste, StudentQualification, gender, FatherOcupation, MotherOcupation, JobSector, motherjobsector, Followup,
-            stateinterest, intrestedareas,remindersetting;
+            stateinterest, intrestedareas, remindersetting;
     String sibilingsabroad;
     String studentName = "", leadfrom = "", assignedrm = "",
-            city = "",country="",intercourse="",interintrestedcourse="",Spinnerstates="",children="",Attempts="",phonenumber="";
+            city = "", country = "", intercourse = "", interintrestedcourse = "", Spinnerstates = "", children = "", Attempts = "", phonenumber = "";
     SharedPref sharedPref;
-    String userName;
+    String userName, contactNumber;
     String Callfrom = "Reminder", from = "";
     private LinearLayout parentLayout;
     private int hint = 0;
 
     private CheckBox chkyes;
+    List<String> categories;
+
+    List<String> states;
+    List<String> categoriesInterCourse;
+    List<String> categoriesCourse;
 
 
     private int mYear, mMonth, mDay, mHour, mMinute, mSec;
@@ -129,6 +135,13 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
     NewTodaycallBacksResponse newTodaycallBacksResponse = null;
     List<IncomingResponse> incomingResponseList;
 
+    int spinnerstatesPosition;
+    int spinnerentrancePosition;
+    int spinnerintercoursePosition;
+    int spinnerchildrenPosition;
+    int spinnerPosition;
+    int spinnerinterintrestedcoursePosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,22 +154,21 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         phonenumber = getIntent().getStringExtra("Phonenumber");
-        Log.e("phonenumberrr",""+phonenumber);
+        Log.e("phonenumberrr", "" + phonenumber);
 
         id = getIntent().getIntExtra("Id", 0);
         studentName = getIntent().getStringExtra("studentName");
         city = getIntent().getStringExtra("city");
         from = getIntent().getStringExtra("from");
-        country=getIntent().getStringExtra("IntrestedCountry");
+        country = getIntent().getStringExtra("IntrestedCountry");
         Spinnerstates = getIntent().getStringExtra("states");
         children = getIntent().getStringExtra("children");
         Attempts = getIntent().getStringExtra("Attempts");
 
-        intercourse =getIntent().getStringExtra("InterCourse");
+        intercourse = getIntent().getStringExtra("InterCourse");
         interintrestedcourse = getIntent().getStringExtra("intrestedcourese");
         Log.e("id", "" + id);
         Log.e("studentName", "" + studentName);
-
 
 
         parentLayout = (LinearLayout) findViewById(R.id.linearadd);
@@ -187,7 +199,6 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         //mRadioGrpreminderset = findViewById(R.id.radioGroupreminder);
 
 
-
         //radio buttons
         rbintersted = findViewById(R.id.rbintersted);
         rbcallback = findViewById(R.id.rbcallback);
@@ -204,7 +215,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         no1 = findViewById(R.id.norb2);
         yes2 = findViewById(R.id.yesrb2);
         no2 = findViewById(R.id.norb2);
-        yesrb3 =findViewById(R.id.yesrb3);
+        yesrb3 = findViewById(R.id.yesrb3);
         norb3 = findViewById(R.id.norb3);
         ssc = findViewById(R.id.tenth);
         inter = findViewById(R.id.Inter);
@@ -337,7 +348,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         mIntrestedareas = findViewById(R.id.tvinfointrestedareas);
         mRemindersetting = findViewById(R.id.tvinforeminderconfirmation);
         mTvcontactnumber = findViewById(R.id.tvinfocontactnumber);
-        mTvSource=findViewById(R.id.tvinfosource);
+        mTvSource = findViewById(R.id.tvinfosource);
 
         //mRemainderdate = findViewById(R.id.tvinforemdate);
 
@@ -347,8 +358,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             mEtstdname.setText(studentName);
         }*/
 
-        mEtstdname =findViewById(R.id.etinfosname);
-        mEtcontactnumber =findViewById(R.id.etinfocontactnumber);
+        mEtstdname = findViewById(R.id.etinfosname);
+        mEtcontactnumber = findViewById(R.id.etinfocontactnumber);
 
         mEtOthers = findViewById(R.id.etinfootherspecify);
       /*  if (mEtOthers.getText().toString()!= null){
@@ -449,10 +460,9 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         mEtfatherbussiness.setVisibility(View.GONE);
         mEtmotherdepartment = findViewById(R.id.etinfomotherwhichgovt);
         mEtmotherdepartment.setVisibility(View.GONE);
-        mEtSource =findViewById(R.id.etinfosource);
+        mEtSource = findViewById(R.id.etinfosource);
 
         chkyes = findViewById(R.id.remyes);
-
 
 
         mBtnsubmit = findViewById(R.id.btninfosubmit);
@@ -460,6 +470,17 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         mAdd = findViewById(R.id.btninfoadd);
         mBtnCancel = findViewById(R.id.btninfocancel);
         mBtnCheck = findViewById(R.id.btninfocheck);
+
+
+        mBtnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                CheckNumber();
+            }
+        });
+
 
         mBtnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -498,13 +519,11 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
                 sharedPref = new SharedPref(getApplicationContext());
                 userName = sharedPref.getUserName();
-                Uri uri = Uri.parse("https://wo.brandwar.in/Employee/UploadFilesData/"+id+"?sales="+userName); // missing 'http://' will cause crashed
+                Uri uri = Uri.parse("https://wo.brandwar.in/Employee/UploadFilesData/" + id + "?sales=" + userName); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
         });
-
-
 
 
         mSpinnerChildren = findViewById(R.id.infospinnerCildren);
@@ -580,10 +599,10 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         states.add("Puducherry");
 
 
-        ArrayAdapter<String> dataAdapterStates = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
+        final ArrayAdapter<String> dataAdapterStates = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, states);
         dataAdapterStates.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerStates.setAdapter(dataAdapterStates);
-        int spinnerstatesPosition = dataAdapterStates.getPosition(Spinnerstates);
+        final int spinnerstatesPosition = dataAdapterStates.getPosition(Spinnerstates);
 
 
         mSpinnerInterCourse.setOnItemSelectedListener(this);
@@ -624,7 +643,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         dataAdapterCourse.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerInterInterestedCourse.setAdapter(dataAdapterCourse);
 
-        int spinnerinterintrestedcoursePosition = dataAdapterCourse.getPosition(interintrestedcourse);
+        final int spinnerinterintrestedcoursePosition = dataAdapterCourse.getPosition(interintrestedcourse);
 
         mSpinnerinterentranceAttempts.setOnItemSelectedListener(this);
         final List<String> categoriesentranceAttempts = new ArrayList<String>();
@@ -646,7 +665,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
         mSpinnerCountry.setOnItemSelectedListener(this);
 
-        final List<String> categories = new ArrayList<String>();
+        categories = new ArrayList<String>();
 
         categories.add("---select---");
         categories.add("CHINA");
@@ -671,7 +690,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         mSpinnerCountry.setAdapter(dataAdapter);
 
         int spinnerPosition = dataAdapter.getPosition(country);
-        Log.e("country",""+spinnerPosition);
+        Log.e("country", "" + spinnerPosition);
 
         mEtremainderdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -819,8 +838,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     mRemtext2.setVisibility(View.VISIBLE);
                     mEtremainderdate.setVisibility(View.VISIBLE);
                     mEtremtext.setVisibility(View.VISIBLE);
-                }else
-                {
+                } else {
                     mRemainderdate.setVisibility(View.GONE);
                     mRemtext2.setVisibility(View.GONE);
                     mEtremainderdate.setVisibility(View.GONE);
@@ -829,7 +847,6 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
             }
         });
-
 
 
         mRadiogrp3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -1314,9 +1331,6 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         });
 
 
-
-
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
 
@@ -1342,12 +1356,6 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             mRecycler.setAdapter(incomingcallAdapter);*/
 
         }
-
-
-
-
-
-
 
 
         if (getIntent().getStringExtra("case") != null && !getIntent().getStringExtra("case").isEmpty() &&
@@ -1384,7 +1392,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     ssc.setChecked(true);
                 } else if (newTodayCallResponse.qalification.equalsIgnoreCase("Inter")) {
                     inter.setChecked(true);
-                } else if (newTodayCallResponse.qalification.equalsIgnoreCase("graduation")){
+                } else if (newTodayCallResponse.qalification.equalsIgnoreCase("graduation")) {
                     graduation.setChecked(true);
                 }
             }
@@ -1398,7 +1406,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodayCallResponse.sSCintrestedBranch != null && !newTodayCallResponse.sSCintrestedBranch.isEmpty()) {
                 mEttenthinterestedbranch.setText(newTodayCallResponse.sSCintrestedBranch);
             }
-            if (newTodayCallResponse.entrenceTestName!= null && !newTodayCallResponse.entrenceTestName.isEmpty()) {
+            if (newTodayCallResponse.entrenceTestName != null && !newTodayCallResponse.entrenceTestName.isEmpty()) {
                 mEttenthEntranceExam.setText(newTodayCallResponse.entrenceTestName);
             }
 
@@ -1454,7 +1462,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodayCallResponse.stateOfintrest != null && !newTodayCallResponse.stateOfintrest.isEmpty()) {
                 if (newTodayCallResponse.stateOfintrest.equalsIgnoreCase("local")) {
                     local.setChecked(true);
-                } else if (newTodayCallResponse.stateOfintrest.equalsIgnoreCase("abroad")){
+                } else if (newTodayCallResponse.stateOfintrest.equalsIgnoreCase("abroad")) {
                     abroad.setChecked(true);
                 }
             }
@@ -1462,7 +1470,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodayCallResponse.courseType != null && !newTodayCallResponse.courseType.isEmpty()) {
                 if (newTodayCallResponse.courseType.equalsIgnoreCase("Short Term")) {
                     shortterm.setChecked(true);
-                } else if (newTodayCallResponse.courseType.equalsIgnoreCase("Long Term")){
+                } else if (newTodayCallResponse.courseType.equalsIgnoreCase("Long Term")) {
                     longterm.setChecked(true);
                 }
             }
@@ -1552,7 +1560,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodayCallResponse.canditintrests != null && !newTodayCallResponse.canditintrests.isEmpty()) {
                 if (newTodayCallResponse.canditintrests.equalsIgnoreCase("Parent")) {
                     appparent.setChecked(true);
-                } else if (newTodayCallResponse.canditintrests.equalsIgnoreCase("Counsultancy")){
+                } else if (newTodayCallResponse.canditintrests.equalsIgnoreCase("Counsultancy")) {
                     appcounsultancy.setChecked(true);
                 }
             }
@@ -1574,11 +1582,11 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             }
 
 
-            if (newTodayCallResponse.consutancyDescr!= null && !newTodayCallResponse.consutancyDescr.isEmpty()) {
+            if (newTodayCallResponse.consutancyDescr != null && !newTodayCallResponse.consutancyDescr.isEmpty()) {
                 mEtcounsul.setText(newTodayCallResponse.consutancyDescr);
             }
-            if (newTodayCallResponse.studyinAbroadDesc!= null && !newTodayCallResponse.studyinAbroadDesc.isEmpty()) {
-                if (newTodayCallResponse.studyinAbroadDesc.equalsIgnoreCase( " yes")) {
+            if (newTodayCallResponse.studyinAbroadDesc != null && !newTodayCallResponse.studyinAbroadDesc.isEmpty()) {
+                if (newTodayCallResponse.studyinAbroadDesc.equalsIgnoreCase(" yes")) {
                     yes1.setChecked(true);
                 } else if (newTodayCallResponse.studyinAbroadDesc.equalsIgnoreCase("No")) {
                     no1.setChecked(true);
@@ -1595,8 +1603,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtSibilingsDuration.setText(newTodayCallResponse.siblingCourse);
             }
 
-            if (newTodayCallResponse.visitDescriptiopn!= null && !newTodayCallResponse.visitDescriptiopn.isEmpty()) {
-                if (newTodayCallResponse.visitDescriptiopn.equalsIgnoreCase( " yes")) {
+            if (newTodayCallResponse.visitDescriptiopn != null && !newTodayCallResponse.visitDescriptiopn.isEmpty()) {
+                if (newTodayCallResponse.visitDescriptiopn.equalsIgnoreCase(" yes")) {
                     yesrb3.setChecked(true);
                 } else if (newTodayCallResponse.visitDescriptiopn.equalsIgnoreCase("No ")) {
                     norb3.setChecked(true);
@@ -1607,8 +1615,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtfeedback.setText(newTodayCallResponse.feedBackDescription);
             }
 
-            if (newTodayCallResponse.abroadKnowledgeDesc!= null && !newTodayCallResponse.abroadKnowledgeDesc.isEmpty()) {
-                if (newTodayCallResponse.abroadKnowledgeDesc.equalsIgnoreCase( " yes")) {
+            if (newTodayCallResponse.abroadKnowledgeDesc != null && !newTodayCallResponse.abroadKnowledgeDesc.isEmpty()) {
+                if (newTodayCallResponse.abroadKnowledgeDesc.equalsIgnoreCase(" yes")) {
                     yes.setChecked(true);
                 } else if (newTodayCallResponse.abroadKnowledgeDesc.equalsIgnoreCase("No ")) {
                     no.setChecked(true);
@@ -1616,55 +1624,56 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
             }
 
-            if (newTodayCallResponse.fatherJobdescription!= null && !newTodayCallResponse.fatherJobdescription.isEmpty()) {
+            if (newTodayCallResponse.fatherJobdescription != null && !newTodayCallResponse.fatherJobdescription.isEmpty()) {
                 mEtfatherbussiness.setText(newTodayCallResponse.fatherJobdescription);
             }
 
-            if (newTodayCallResponse.fatherJob!= null && !newTodayCallResponse.fatherJob.isEmpty()) {
+            if (newTodayCallResponse.fatherJob != null && !newTodayCallResponse.fatherJob.isEmpty()) {
                 mEtGovtjobtitle.setText(newTodayCallResponse.fatherJob);
             }
             if (newTodayCallResponse.visitDate != null && !newTodayCallResponse.visitDate.isEmpty()) {
                 mEtvisittext.setText(newTodayCallResponse.visitDate);
             }
-            if (newTodayCallResponse.callOtheStatus!= null && !newTodayCallResponse.callOtheStatus.isEmpty()) {
+            if (newTodayCallResponse.callOtheStatus != null && !newTodayCallResponse.callOtheStatus.isEmpty()) {
                 mEtotherstatus.setText(newTodayCallResponse.callOtheStatus);
             }
             if (newTodayCallResponse.motherOccupationSector != null && !newTodayCallResponse.motherOccupationSector.isEmpty()) {
                 if (newTodayCallResponse.motherOccupationSector.equalsIgnoreCase("Private ")) {
                     motherpvt.setChecked(true);
-                } else if (newTodayCallResponse.motherOccupationSector.equalsIgnoreCase("Govt")){
+                } else if (newTodayCallResponse.motherOccupationSector.equalsIgnoreCase("Govt")) {
                     mothergovt.setChecked(true);
                 }
             }
-            if (newTodayCallResponse.motherJobdesc!= null && !newTodayCallResponse.motherJobdesc.isEmpty()) {
+            if (newTodayCallResponse.motherJobdesc != null && !newTodayCallResponse.motherJobdesc.isEmpty()) {
                 mEtmotherdepartment.setText(newTodayCallResponse.motherJobdesc);
             }
-            if (newTodayCallResponse.intrestedCountry!= null && !newTodayCallResponse.intrestedCountry.isEmpty()) {
+            if (newTodayCallResponse.intrestedCountry != null && !newTodayCallResponse.intrestedCountry.isEmpty()) {
 
             }
-            if (newTodayCallResponse.intrestedCountry!= null && !newTodayCallResponse.intrestedCountry.isEmpty()) {
+            if (newTodayCallResponse.intrestedCountry != null && !newTodayCallResponse.intrestedCountry.isEmpty()) {
+                Log.e("spinnerPosition", "" + spinnerPosition);
                 mSpinnerCountry.setSelection(spinnerPosition);
             }
 
-            if (newTodayCallResponse.interbranch!= null && !newTodayCallResponse.interbranch.isEmpty()) {
+            if (newTodayCallResponse.interbranch != null && !newTodayCallResponse.interbranch.isEmpty()) {
                 mSpinnerInterCourse.setSelection(spinnerintercoursePosition);
             }
-            if (newTodayCallResponse.interIntrestedCourse!= null && !newTodayCallResponse.interIntrestedCourse.isEmpty()) {
+            if (newTodayCallResponse.interIntrestedCourse != null && !newTodayCallResponse.interIntrestedCourse.isEmpty()) {
                 mSpinnerInterInterestedCourse.setSelection(spinnerinterintrestedcoursePosition);
             }
-            if (newTodayCallResponse.siblings!= null ) {
+            if (newTodayCallResponse.siblings != null) {
                 mSpinnerChildren.setSelection(newTodayCallResponse.siblings);
 
             }
 
-            if (newTodayCallResponse.entranceTestAttemts!= null) {
+            if (newTodayCallResponse.entranceTestAttemts != null) {
                 mSpinnerinterentranceAttempts.setSelection(newTodayCallResponse.entranceTestAttemts);
             }
-            if (newTodayCallResponse.state!= null && !newTodayCallResponse.state.isEmpty()) {
+            if (newTodayCallResponse.state != null && !newTodayCallResponse.state.isEmpty()) {
                 mSpinnerStates.setSelection(spinnerstatesPosition);
             }
 
-            if (newTodayCallResponse.leadfrom!= null && !newTodayCallResponse.leadfrom.isEmpty()) {
+            if (newTodayCallResponse.leadfrom != null && !newTodayCallResponse.leadfrom.isEmpty()) {
                 mEtSource.setText(newTodayCallResponse.leadfrom);
             }
            /* if (newTodayCallResponse.state!= null && !newTodayCallResponse.state.isEmpty()) {
@@ -1712,7 +1721,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     ssc.setChecked(true);
                 } else if (newInterestedCallResponse.qalification.equalsIgnoreCase("Inter")) {
                     inter.setChecked(true);
-                } else if (newInterestedCallResponse.qalification.equalsIgnoreCase("graduation")){
+                } else if (newInterestedCallResponse.qalification.equalsIgnoreCase("graduation")) {
                     graduation.setChecked(true);
                 }
             }
@@ -1727,11 +1736,11 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEttenthinterestedbranch.setText(newInterestedCallResponse.sSCintrestedBranch);
             }
 
-            if (newInterestedCallResponse.entrenceTestName!= null && !newInterestedCallResponse.entrenceTestName.isEmpty()) {
+            if (newInterestedCallResponse.entrenceTestName != null && !newInterestedCallResponse.entrenceTestName.isEmpty()) {
                 mEttenthEntranceExam.setText(newInterestedCallResponse.entrenceTestName);
             }
 
-            if (newInterestedCallResponse.fatherJob!= null && !newInterestedCallResponse.fatherJob.isEmpty()) {
+            if (newInterestedCallResponse.fatherJob != null && !newInterestedCallResponse.fatherJob.isEmpty()) {
                 mEtGovtjobtitle.setText(newInterestedCallResponse.fatherJob);
             }
             if (newInterestedCallResponse.marks != null) {
@@ -1783,9 +1792,9 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newInterestedCallResponse.stateOfintrest != null && !newInterestedCallResponse.stateOfintrest.isEmpty()) {
                 if (newInterestedCallResponse.stateOfintrest.equalsIgnoreCase("Local")) {
                     local.setChecked(true);
-                } else if (newInterestedCallResponse.stateOfintrest.equalsIgnoreCase("Abroad")){
+                } else if (newInterestedCallResponse.stateOfintrest.equalsIgnoreCase("Abroad")) {
                     abroad.setChecked(true);
-                }else if (newInterestedCallResponse.stateOfintrest.equalsIgnoreCase("Long Term")){
+                } else if (newInterestedCallResponse.stateOfintrest.equalsIgnoreCase("Long Term")) {
                     rbstateofintrestlongterm.setChecked(true);
                 }
             }
@@ -1793,7 +1802,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newInterestedCallResponse.courseType != null && !newInterestedCallResponse.courseType.isEmpty()) {
                 if (newInterestedCallResponse.courseType.equalsIgnoreCase("Short Term ")) {
                     shortterm.setChecked(true);
-                } else if (newInterestedCallResponse.courseType.equalsIgnoreCase("Long Term")){
+                } else if (newInterestedCallResponse.courseType.equalsIgnoreCase("Long Term")) {
                     longterm.setChecked(true);
                 }
             }
@@ -1856,7 +1865,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbswitchoff.setChecked(true);
                 } else if (newInterestedCallResponse.callStatus.equalsIgnoreCase("oc")) {
                     rboutofcoverage.setChecked(true);
-                } else if (newInterestedCallResponse.callStatus.equalsIgnoreCase("others")){
+                } else if (newInterestedCallResponse.callStatus.equalsIgnoreCase("others")) {
                     rbothers.setChecked(true);
                 }
 
@@ -1866,16 +1875,16 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newInterestedCallResponse.fatherOcupat != null && !newInterestedCallResponse.fatherOcupat.isEmpty()) {
                 if (newInterestedCallResponse.fatherOcupat.equalsIgnoreCase("Job ")) {
                     fatherjob.setChecked(true);
-                } else if (newInterestedCallResponse.fatherOcupat.equalsIgnoreCase("Bussiness")){
+                } else if (newInterestedCallResponse.fatherOcupat.equalsIgnoreCase("Bussiness")) {
                     bussiness.setChecked(true);
-                }else if (newInterestedCallResponse.fatherOcupat.equalsIgnoreCase("Farmer")){
+                } else if (newInterestedCallResponse.fatherOcupat.equalsIgnoreCase("Farmer")) {
                     farmer.setChecked(true);
                 }
             }
             if (newInterestedCallResponse.occSector != null && !newInterestedCallResponse.occSector.isEmpty()) {
                 if (newInterestedCallResponse.occSector.equalsIgnoreCase("Private ")) {
                     pvt.setChecked(true);
-                } else if (newInterestedCallResponse.occSector.equalsIgnoreCase("Govt")){
+                } else if (newInterestedCallResponse.occSector.equalsIgnoreCase("Govt")) {
                     govt.setChecked(true);
                 }
             }
@@ -1888,23 +1897,23 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             }
 
             if (newInterestedCallResponse.mIncomeinLaks != null) {
-                mEtmotherincome.setText(""+newInterestedCallResponse.mIncomeinLaks);
+                mEtmotherincome.setText("" + newInterestedCallResponse.mIncomeinLaks);
             }
 
-            if (newInterestedCallResponse.fatherJobdescription!= null && !newInterestedCallResponse.fatherJobdescription.isEmpty()) {
+            if (newInterestedCallResponse.fatherJobdescription != null && !newInterestedCallResponse.fatherJobdescription.isEmpty()) {
                 mEtfatherbussiness.setText(newInterestedCallResponse.fatherJobdescription);
             }
 
-            if (newInterestedCallResponse.siblingCourse!= null && !newInterestedCallResponse.siblingCourse.isEmpty()) {
+            if (newInterestedCallResponse.siblingCourse != null && !newInterestedCallResponse.siblingCourse.isEmpty()) {
                 mEtSibilingsDuration.setText(newInterestedCallResponse.siblingCourse);
             }
-            if (newInterestedCallResponse.visitMsg!= null && !newInterestedCallResponse.visitMsg.isEmpty()) {
+            if (newInterestedCallResponse.visitMsg != null && !newInterestedCallResponse.visitMsg.isEmpty()) {
                 mEtvisitmessage.setText(newInterestedCallResponse.visitMsg);
             }
-            if (newInterestedCallResponse.visitStatus != null ) {
+            if (newInterestedCallResponse.visitStatus != null) {
                 if (newInterestedCallResponse.visitStatus.equals(true)) {
                     yesrb3.setChecked(true);
-                } else if (newInterestedCallResponse.visitStatus.equals(false)){
+                } else if (newInterestedCallResponse.visitStatus.equals(false)) {
                     norb3.setChecked(true);
                 }
             }
@@ -1912,7 +1921,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newInterestedCallResponse.canditintrests != null && !newInterestedCallResponse.canditintrests.isEmpty()) {
                 if (newInterestedCallResponse.canditintrests.equalsIgnoreCase("Parent")) {
                     appparent.setChecked(true);
-                } else if (newInterestedCallResponse.canditintrests.equalsIgnoreCase("Counsultancy")){
+                } else if (newInterestedCallResponse.canditintrests.equalsIgnoreCase("Counsultancy")) {
                     appcounsultancy.setChecked(true);
                 }
             }
@@ -1929,12 +1938,12 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newInterestedCallResponse.motherJobdesc != null && !newInterestedCallResponse.motherJobdesc.isEmpty()) {
                 mEtmotherdepartment.setText(newInterestedCallResponse.motherJobdesc);
             }
-            if (newInterestedCallResponse.consutancyDescr!= null && !newInterestedCallResponse.consutancyDescr.isEmpty()) {
+            if (newInterestedCallResponse.consutancyDescr != null && !newInterestedCallResponse.consutancyDescr.isEmpty()) {
                 mEtcounsul.setText(newInterestedCallResponse.consutancyDescr);
             }
 
-            if (newInterestedCallResponse.studyinAbroadDesc!= null && !newInterestedCallResponse.studyinAbroadDesc.isEmpty()) {
-                if (newInterestedCallResponse.studyinAbroadDesc.equalsIgnoreCase( " yes")) {
+            if (newInterestedCallResponse.studyinAbroadDesc != null && !newInterestedCallResponse.studyinAbroadDesc.isEmpty()) {
+                if (newInterestedCallResponse.studyinAbroadDesc.equalsIgnoreCase(" yes")) {
                     yes1.setChecked(true);
                 } else if (newInterestedCallResponse.studyinAbroadDesc.equalsIgnoreCase("No ")) {
                     no1.setChecked(true);
@@ -1950,8 +1959,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newInterestedCallResponse.siblingCourse != null && !newInterestedCallResponse.siblingCourse.isEmpty()) {
                 mEtSibilingsDuration.setText(newInterestedCallResponse.siblingCourse);
             }
-            if (newInterestedCallResponse.visitDescriptiopn!= null && !newInterestedCallResponse.visitDescriptiopn.isEmpty()) {
-                if (newInterestedCallResponse.visitDescriptiopn.equalsIgnoreCase( " yes")) {
+            if (newInterestedCallResponse.visitDescriptiopn != null && !newInterestedCallResponse.visitDescriptiopn.isEmpty()) {
+                if (newInterestedCallResponse.visitDescriptiopn.equalsIgnoreCase(" yes")) {
                     yesrb3.setChecked(true);
                 } else if (newInterestedCallResponse.visitDescriptiopn.equalsIgnoreCase("No")) {
                     norb3.setChecked(true);
@@ -1963,8 +1972,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtfeedback.setText(newInterestedCallResponse.feedBackDescription);
             }
 
-            if (newInterestedCallResponse.abroadKnowledgeDesc!= null && !newInterestedCallResponse.abroadKnowledgeDesc.isEmpty()) {
-                if (newInterestedCallResponse.abroadKnowledgeDesc.equalsIgnoreCase( " yes")) {
+            if (newInterestedCallResponse.abroadKnowledgeDesc != null && !newInterestedCallResponse.abroadKnowledgeDesc.isEmpty()) {
+                if (newInterestedCallResponse.abroadKnowledgeDesc.equalsIgnoreCase(" yes")) {
                     yes.setChecked(true);
                 } else if (newInterestedCallResponse.abroadKnowledgeDesc.equalsIgnoreCase("No ")) {
                     no.setChecked(true);
@@ -1978,45 +1987,45 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtvisittext.setText(newInterestedCallResponse.visitDate);
             }
 
-            if (newInterestedCallResponse.callOtheStatus!= null && !newInterestedCallResponse.callOtheStatus.isEmpty()) {
+            if (newInterestedCallResponse.callOtheStatus != null && !newInterestedCallResponse.callOtheStatus.isEmpty()) {
                 mEtotherstatus.setText(newInterestedCallResponse.callOtheStatus);
             }
 
             if (newInterestedCallResponse.motherOccupationSector != null && !newInterestedCallResponse.motherOccupationSector.isEmpty()) {
                 if (newInterestedCallResponse.motherOccupationSector.equalsIgnoreCase("Private ")) {
                     motherpvt.setChecked(true);
-                } else if (newInterestedCallResponse.motherOccupationSector.equalsIgnoreCase("Govt")){
+                } else if (newInterestedCallResponse.motherOccupationSector.equalsIgnoreCase("Govt")) {
                     mothergovt.setChecked(true);
                 }
             }
-            if (newInterestedCallResponse.motherJobdesc!= null && !newInterestedCallResponse.motherJobdesc.isEmpty()) {
+            if (newInterestedCallResponse.motherJobdesc != null && !newInterestedCallResponse.motherJobdesc.isEmpty()) {
                 mEtmotherdepartment.setText(newInterestedCallResponse.motherJobdesc);
             }
-            if (newInterestedCallResponse.intrestedCountry!= null && !newInterestedCallResponse.intrestedCountry.isEmpty()) {
+            if (newInterestedCallResponse.intrestedCountry != null && !newInterestedCallResponse.intrestedCountry.isEmpty()) {
                 mSpinnerCountry.setSelection(spinnerPosition);
             }
 
-            if (newInterestedCallResponse.interbranch!= null && !newInterestedCallResponse.interbranch.isEmpty()) {
+            if (newInterestedCallResponse.interbranch != null && !newInterestedCallResponse.interbranch.isEmpty()) {
                 mSpinnerInterCourse.setSelection(spinnerintercoursePosition);
             }
-            if (newInterestedCallResponse.interIntrestedCourse!= null && !newInterestedCallResponse.interIntrestedCourse.isEmpty()) {
+            if (newInterestedCallResponse.interIntrestedCourse != null && !newInterestedCallResponse.interIntrestedCourse.isEmpty()) {
                 mSpinnerInterInterestedCourse.setSelection(spinnerinterintrestedcoursePosition);
             }
 
 
-            if (newInterestedCallResponse.siblings!= null ) {
+            if (newInterestedCallResponse.siblings != null) {
                 mSpinnerChildren.setSelection(newInterestedCallResponse.siblings);
             }
 
-            if (newInterestedCallResponse.entranceTestAttemts!= null) {
+            if (newInterestedCallResponse.entranceTestAttemts != null) {
                 mSpinnerinterentranceAttempts.setSelection(newInterestedCallResponse.entranceTestAttemts);
             }
 
-            if (newInterestedCallResponse.state!= null && !newInterestedCallResponse.state.isEmpty()) {
+            if (newInterestedCallResponse.state != null && !newInterestedCallResponse.state.isEmpty()) {
                 mSpinnerStates.setSelection(spinnerstatesPosition);
             }
 
-            if (newInterestedCallResponse.leadfrom!= null && !newInterestedCallResponse.leadfrom.isEmpty()) {
+            if (newInterestedCallResponse.leadfrom != null && !newInterestedCallResponse.leadfrom.isEmpty()) {
                 mEtSource.setText(newInterestedCallResponse.leadfrom);
             }
         /*    if (newInterestedCallResponse.state!= null && !newInterestedCallResponse.state.isEmpty()) {
@@ -2059,7 +2068,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     ssc.setChecked(true);
                 } else if (newremindercallresponse.qalification.equalsIgnoreCase("Inter")) {
                     inter.setChecked(true);
-                } else if (newremindercallresponse.qalification.equalsIgnoreCase("graduation")){
+                } else if (newremindercallresponse.qalification.equalsIgnoreCase("graduation")) {
                     graduation.setChecked(true);
                 }
             }
@@ -2068,7 +2077,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEttenthmarks.setText("" + newremindercallresponse.sSCmarks);
             }
 
-            if (newremindercallresponse.entrenceTestName!= null && !newremindercallresponse.entrenceTestName.isEmpty()) {
+            if (newremindercallresponse.entrenceTestName != null && !newremindercallresponse.entrenceTestName.isEmpty()) {
                 mEttenthEntranceExam.setText(newremindercallresponse.entrenceTestName);
             }
             if (newremindercallresponse.sscfuturecourse != null && !newremindercallresponse.sscfuturecourse.isEmpty()) {
@@ -2119,7 +2128,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbbc.setChecked(true);
                 } else if (newremindercallresponse.cast.equalsIgnoreCase("sc")) {
                     rbsc.setChecked(true);
-                } else if (newremindercallresponse.cast.equalsIgnoreCase("St")){
+                } else if (newremindercallresponse.cast.equalsIgnoreCase("St")) {
                     rbst.setChecked(true);
                 }
             }
@@ -2129,37 +2138,37 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newremindercallresponse.stateOfintrest != null && !newremindercallresponse.stateOfintrest.isEmpty()) {
                 if (newremindercallresponse.stateOfintrest.equalsIgnoreCase("Local")) {
                     local.setChecked(true);
-                } else if (newremindercallresponse.stateOfintrest.equalsIgnoreCase("Abroad")){
+                } else if (newremindercallresponse.stateOfintrest.equalsIgnoreCase("Abroad")) {
                     abroad.setChecked(true);
-                }else if (newremindercallresponse.stateOfintrest.equalsIgnoreCase("Long Term")){
+                } else if (newremindercallresponse.stateOfintrest.equalsIgnoreCase("Long Term")) {
                     rbstateofintrestlongterm.setChecked(true);
                 }
             }
             if (newremindercallresponse.courseType != null && !newremindercallresponse.courseType.isEmpty()) {
                 if (newremindercallresponse.courseType.equalsIgnoreCase("Short Term ")) {
                     shortterm.setChecked(true);
-                } else if (newremindercallresponse.courseType.equalsIgnoreCase("Long Term")){
+                } else if (newremindercallresponse.courseType.equalsIgnoreCase("Long Term")) {
                     longterm.setChecked(true);
                 }
             }
 
-            if (newremindercallresponse.fatherJob!= null && !newremindercallresponse.fatherJob.isEmpty()) {
+            if (newremindercallresponse.fatherJob != null && !newremindercallresponse.fatherJob.isEmpty()) {
                 mEtGovtjobtitle.setText(newremindercallresponse.fatherJob);
             }
 
             if (newremindercallresponse.fatherOcupat != null && !newremindercallresponse.fatherOcupat.isEmpty()) {
                 if (newremindercallresponse.fatherOcupat.equalsIgnoreCase("Job ")) {
                     fatherjob.setChecked(true);
-                } else if (newremindercallresponse.fatherOcupat.equalsIgnoreCase("Bussiness")){
+                } else if (newremindercallresponse.fatherOcupat.equalsIgnoreCase("Bussiness")) {
                     bussiness.setChecked(true);
-                }else if (newremindercallresponse.fatherOcupat.equalsIgnoreCase("Farmer")){
+                } else if (newremindercallresponse.fatherOcupat.equalsIgnoreCase("Farmer")) {
                     farmer.setChecked(true);
                 }
             }
             if (newremindercallresponse.occSector != null && !newremindercallresponse.occSector.isEmpty()) {
                 if (newremindercallresponse.occSector.equalsIgnoreCase("Private ")) {
                     pvt.setChecked(true);
-                } else if (newremindercallresponse.occSector.equalsIgnoreCase("Govt")){
+                } else if (newremindercallresponse.occSector.equalsIgnoreCase("Govt")) {
                     govt.setChecked(true);
                 }
             }
@@ -2233,7 +2242,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbswitchoff.setChecked(true);
                 } else if (newremindercallresponse.callStatus.equalsIgnoreCase("oc")) {
                     rboutofcoverage.setChecked(true);
-                } else if (newremindercallresponse.callStatus.equalsIgnoreCase("others")){
+                } else if (newremindercallresponse.callStatus.equalsIgnoreCase("others")) {
                     rbothers.setChecked(true);
                 }
 
@@ -2249,24 +2258,24 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             }
 
             if (newremindercallresponse.mIncomeinLaks != null) {
-                mEtmotherincome.setText(""+newremindercallresponse.mIncomeinLaks);
+                mEtmotherincome.setText("" + newremindercallresponse.mIncomeinLaks);
             }
 
-            if (newremindercallresponse.fatherJobdescription!= null && !newremindercallresponse.fatherJobdescription.isEmpty()) {
+            if (newremindercallresponse.fatherJobdescription != null && !newremindercallresponse.fatherJobdescription.isEmpty()) {
                 mEtfatherbussiness.setText(newremindercallresponse.fatherJobdescription);
             }
 
-            if (newremindercallresponse.siblingCourse!= null && !newremindercallresponse.siblingCourse.isEmpty()) {
+            if (newremindercallresponse.siblingCourse != null && !newremindercallresponse.siblingCourse.isEmpty()) {
                 mEtSibilingsDuration.setText(newremindercallresponse.siblingCourse);
             }
 
-            if (newremindercallresponse.visitMsg!= null && !newremindercallresponse.visitMsg.isEmpty()) {
+            if (newremindercallresponse.visitMsg != null && !newremindercallresponse.visitMsg.isEmpty()) {
                 mEtvisitmessage.setText(newremindercallresponse.visitMsg);
             }
-            if (newremindercallresponse.visitStatus != null ) {
+            if (newremindercallresponse.visitStatus != null) {
                 if (newremindercallresponse.visitStatus.equals(true)) {
                     yesrb3.setChecked(true);
-                } else if (newremindercallresponse.visitStatus.equals(false)){
+                } else if (newremindercallresponse.visitStatus.equals(false)) {
                     norb3.setChecked(true);
                 }
             }
@@ -2274,7 +2283,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newremindercallresponse.canditintrests != null && !newremindercallresponse.canditintrests.isEmpty()) {
                 if (newremindercallresponse.canditintrests.equalsIgnoreCase("Parent")) {
                     appparent.setChecked(true);
-                } else if (newremindercallresponse.canditintrests.equalsIgnoreCase("Counsultancy")){
+                } else if (newremindercallresponse.canditintrests.equalsIgnoreCase("Counsultancy")) {
                     appcounsultancy.setChecked(true);
                 }
             }
@@ -2294,13 +2303,13 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtmotherdepartment.setText(newremindercallresponse.motherJobdesc);
             }
 
-            if (newremindercallresponse.consutancyDescr!= null && !newremindercallresponse.consutancyDescr.isEmpty()) {
+            if (newremindercallresponse.consutancyDescr != null && !newremindercallresponse.consutancyDescr.isEmpty()) {
                 mEtcounsul.setText(newremindercallresponse.consutancyDescr);
             }
 
 
-            if (newremindercallresponse.studyinAbroadDesc!= null && !newremindercallresponse.studyinAbroadDesc.isEmpty()) {
-                if (newremindercallresponse.studyinAbroadDesc.equalsIgnoreCase( " yes")) {
+            if (newremindercallresponse.studyinAbroadDesc != null && !newremindercallresponse.studyinAbroadDesc.isEmpty()) {
+                if (newremindercallresponse.studyinAbroadDesc.equalsIgnoreCase(" yes")) {
                     yes1.setChecked(true);
                 } else if (newremindercallresponse.studyinAbroadDesc.equalsIgnoreCase("No ")) {
                     no1.setChecked(true);
@@ -2318,8 +2327,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtSibilingsDuration.setText(newremindercallresponse.siblingCourse);
             }
 
-            if (newremindercallresponse.visitDescriptiopn!= null && !newremindercallresponse.visitDescriptiopn.isEmpty()) {
-                if (newremindercallresponse.visitDescriptiopn.equalsIgnoreCase( " yes")) {
+            if (newremindercallresponse.visitDescriptiopn != null && !newremindercallresponse.visitDescriptiopn.isEmpty()) {
+                if (newremindercallresponse.visitDescriptiopn.equalsIgnoreCase(" yes")) {
                     yesrb3.setChecked(true);
                 } else if (newremindercallresponse.visitDescriptiopn.equalsIgnoreCase("No ")) {
                     norb3.setChecked(true);
@@ -2330,8 +2339,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtfeedback.setText(newremindercallresponse.feedBackDescription);
             }
 
-            if (newremindercallresponse.abroadKnowledgeDesc!= null && !newremindercallresponse.abroadKnowledgeDesc.isEmpty()) {
-                if (newremindercallresponse.abroadKnowledgeDesc.equalsIgnoreCase( " yes")) {
+            if (newremindercallresponse.abroadKnowledgeDesc != null && !newremindercallresponse.abroadKnowledgeDesc.isEmpty()) {
+                if (newremindercallresponse.abroadKnowledgeDesc.equalsIgnoreCase(" yes")) {
                     yes.setChecked(true);
                 } else if (newremindercallresponse.abroadKnowledgeDesc.equalsIgnoreCase("No ")) {
                     no.setChecked(true);
@@ -2344,47 +2353,47 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newremindercallresponse.visitDate != null && !newremindercallresponse.visitDate.isEmpty()) {
                 mEtvisittext.setText(newremindercallresponse.visitDate);
             }
-            if (newremindercallresponse.callOtheStatus!= null && !newremindercallresponse.callOtheStatus.isEmpty()) {
+            if (newremindercallresponse.callOtheStatus != null && !newremindercallresponse.callOtheStatus.isEmpty()) {
                 mEtotherstatus.setText(newremindercallresponse.callOtheStatus);
             }
 
             if (newremindercallresponse.motherOccupationSector != null && !newremindercallresponse.motherOccupationSector.isEmpty()) {
                 if (newremindercallresponse.motherOccupationSector.equalsIgnoreCase("Private ")) {
                     motherpvt.setChecked(true);
-                } else if (newremindercallresponse.motherOccupationSector.equalsIgnoreCase("Govt")){
+                } else if (newremindercallresponse.motherOccupationSector.equalsIgnoreCase("Govt")) {
                     mothergovt.setChecked(true);
                 }
             }
-            if (newremindercallresponse.motherJobdesc!= null && !newremindercallresponse.motherJobdesc.isEmpty()) {
+            if (newremindercallresponse.motherJobdesc != null && !newremindercallresponse.motherJobdesc.isEmpty()) {
                 mEtmotherdepartment.setText(newremindercallresponse.motherJobdesc);
             }
 
-            if (newremindercallresponse.intrestedCountry!= null && !newremindercallresponse.intrestedCountry.isEmpty()) {
+            if (newremindercallresponse.intrestedCountry != null && !newremindercallresponse.intrestedCountry.isEmpty()) {
                 mSpinnerCountry.setSelection(spinnerPosition);
             }
 
 
-            if (newremindercallresponse.interbranch!= null && !newremindercallresponse.interbranch.isEmpty()) {
+            if (newremindercallresponse.interbranch != null && !newremindercallresponse.interbranch.isEmpty()) {
                 mSpinnerInterCourse.setSelection(spinnerintercoursePosition);
             }
-            if (newremindercallresponse.interIntrestedCourse!= null && !newremindercallresponse.interIntrestedCourse.isEmpty()) {
+            if (newremindercallresponse.interIntrestedCourse != null && !newremindercallresponse.interIntrestedCourse.isEmpty()) {
                 mSpinnerInterInterestedCourse.setSelection(spinnerinterintrestedcoursePosition);
             }
 
 
-            if (newremindercallresponse.siblings!= null ) {
+            if (newremindercallresponse.siblings != null) {
                 mSpinnerChildren.setSelection(newremindercallresponse.siblings);
 
             }
 
-            if (newremindercallresponse.entranceTestAttemts!= null) {
+            if (newremindercallresponse.entranceTestAttemts != null) {
                 mSpinnerinterentranceAttempts.setSelection(newremindercallresponse.entranceTestAttemts);
             }
 
-            if (newremindercallresponse.state!= null && !newremindercallresponse.state.isEmpty()) {
+            if (newremindercallresponse.state != null && !newremindercallresponse.state.isEmpty()) {
                 mSpinnerStates.setSelection(spinnerstatesPosition);
             }
-            if (newremindercallresponse.leadfrom!= null && !newremindercallresponse.leadfrom.isEmpty()) {
+            if (newremindercallresponse.leadfrom != null && !newremindercallresponse.leadfrom.isEmpty()) {
                 mEtSource.setText(newremindercallresponse.leadfrom);
             }
            /* if (newremindercallresponse.state!= null && !newremindercallresponse.state.isEmpty()) {
@@ -2419,7 +2428,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtStdaltcontact.setText(newCallBacksResponse.alternativecontact);
             }
 
-            if (newCallBacksResponse.fatherJob!= null && !newCallBacksResponse.fatherJob.isEmpty()) {
+            if (newCallBacksResponse.fatherJob != null && !newCallBacksResponse.fatherJob.isEmpty()) {
                 mEtGovtjobtitle.setText(newCallBacksResponse.fatherJob);
             }
 
@@ -2428,7 +2437,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     ssc.setChecked(true);
                 } else if (newCallBacksResponse.qalification.equalsIgnoreCase("Inter")) {
                     inter.setChecked(true);
-                } else if (newCallBacksResponse.qalification.equalsIgnoreCase("graduation")){
+                } else if (newCallBacksResponse.qalification.equalsIgnoreCase("graduation")) {
                     graduation.setChecked(true);
                 }
             }
@@ -2443,7 +2452,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEttenthinterestedbranch.setText(newCallBacksResponse.sSCintrestedBranch);
             }
 
-            if (newCallBacksResponse.entrenceTestName!= null && !newCallBacksResponse.entrenceTestName.isEmpty()) {
+            if (newCallBacksResponse.entrenceTestName != null && !newCallBacksResponse.entrenceTestName.isEmpty()) {
                 mEttenthEntranceExam.setText(newCallBacksResponse.entrenceTestName);
             }
             if (newCallBacksResponse.marks != null) {
@@ -2485,7 +2494,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbbc.setChecked(true);
                 } else if (newCallBacksResponse.cast.equalsIgnoreCase("sc")) {
                     rbsc.setChecked(true);
-                } else if (newCallBacksResponse.cast.equalsIgnoreCase("st")){
+                } else if (newCallBacksResponse.cast.equalsIgnoreCase("st")) {
                     rbst.setChecked(true);
                 }
             }
@@ -2495,9 +2504,9 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newCallBacksResponse.stateOfintrest != null && !newCallBacksResponse.stateOfintrest.isEmpty()) {
                 if (newCallBacksResponse.stateOfintrest.equalsIgnoreCase("Local")) {
                     local.setChecked(true);
-                } else if (newCallBacksResponse.stateOfintrest.equalsIgnoreCase("Abroad")){
+                } else if (newCallBacksResponse.stateOfintrest.equalsIgnoreCase("Abroad")) {
                     abroad.setChecked(true);
-                }else if (newCallBacksResponse.stateOfintrest.equalsIgnoreCase("Long Term")){
+                } else if (newCallBacksResponse.stateOfintrest.equalsIgnoreCase("Long Term")) {
                     rbstateofintrestlongterm.setChecked(true);
                 }
             }
@@ -2505,7 +2514,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newCallBacksResponse.courseType != null && !newCallBacksResponse.courseType.isEmpty()) {
                 if (newCallBacksResponse.courseType.equalsIgnoreCase("Short Term ")) {
                     shortterm.setChecked(true);
-                } else if (newCallBacksResponse.courseType.equalsIgnoreCase("Long Term")){
+                } else if (newCallBacksResponse.courseType.equalsIgnoreCase("Long Term")) {
                     longterm.setChecked(true);
                 }
             }
@@ -2570,7 +2579,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbswitchoff.setChecked(true);
                 } else if (newCallBacksResponse.callStatus.equalsIgnoreCase("oc")) {
                     rboutofcoverage.setChecked(true);
-                } else if (newCallBacksResponse.callStatus.equalsIgnoreCase("others")){
+                } else if (newCallBacksResponse.callStatus.equalsIgnoreCase("others")) {
                     rbothers.setChecked(true);
                 }
 
@@ -2579,16 +2588,16 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newCallBacksResponse.fatherOcupat != null && !newCallBacksResponse.fatherOcupat.isEmpty()) {
                 if (newCallBacksResponse.fatherOcupat.equalsIgnoreCase("Job ")) {
                     fatherjob.setChecked(true);
-                } else if (newCallBacksResponse.fatherOcupat.equalsIgnoreCase("Bussiness")){
+                } else if (newCallBacksResponse.fatherOcupat.equalsIgnoreCase("Bussiness")) {
                     bussiness.setChecked(true);
-                }else if (newCallBacksResponse.fatherOcupat.equalsIgnoreCase("Farmer")){
+                } else if (newCallBacksResponse.fatherOcupat.equalsIgnoreCase("Farmer")) {
                     farmer.setChecked(true);
                 }
             }
             if (newCallBacksResponse.occSector != null && !newCallBacksResponse.occSector.isEmpty()) {
                 if (newCallBacksResponse.occSector.equalsIgnoreCase("Private ")) {
                     pvt.setChecked(true);
-                } else if (newCallBacksResponse.occSector.equalsIgnoreCase("Govt")){
+                } else if (newCallBacksResponse.occSector.equalsIgnoreCase("Govt")) {
                     govt.setChecked(true);
                 }
             }
@@ -2601,26 +2610,26 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             }
 
             if (newCallBacksResponse.mIncomeinLaks != null) {
-                mEtmotherincome.setText(""+newCallBacksResponse.mIncomeinLaks);
+                mEtmotherincome.setText("" + newCallBacksResponse.mIncomeinLaks);
             }
 
 
-            if (newCallBacksResponse.fatherJobdescription!= null && !newCallBacksResponse.fatherJobdescription.isEmpty()) {
+            if (newCallBacksResponse.fatherJobdescription != null && !newCallBacksResponse.fatherJobdescription.isEmpty()) {
                 mEtfatherbussiness.setText(newCallBacksResponse.fatherJobdescription);
             }
 
-            if (newCallBacksResponse.siblingCourse!= null && !newCallBacksResponse.siblingCourse.isEmpty()) {
+            if (newCallBacksResponse.siblingCourse != null && !newCallBacksResponse.siblingCourse.isEmpty()) {
                 mEtSibilingsDuration.setText(newCallBacksResponse.siblingCourse);
             }
 
-            if (newCallBacksResponse.visitMsg!= null && !newCallBacksResponse.visitMsg.isEmpty()) {
+            if (newCallBacksResponse.visitMsg != null && !newCallBacksResponse.visitMsg.isEmpty()) {
                 mEtvisitmessage.setText(newCallBacksResponse.visitMsg);
             }
 
-            if (newCallBacksResponse.visitStatus != null ) {
+            if (newCallBacksResponse.visitStatus != null) {
                 if (newCallBacksResponse.visitStatus.equals(true)) {
                     yesrb3.setChecked(true);
-                } else if (newCallBacksResponse.visitStatus.equals(false)){
+                } else if (newCallBacksResponse.visitStatus.equals(false)) {
                     norb3.setChecked(true);
                 }
             }
@@ -2628,7 +2637,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newCallBacksResponse.canditintrests != null && !newCallBacksResponse.canditintrests.isEmpty()) {
                 if (newCallBacksResponse.canditintrests.equalsIgnoreCase("Parent")) {
                     appparent.setChecked(true);
-                } else if (newCallBacksResponse.canditintrests.equalsIgnoreCase("Counsultancy")){
+                } else if (newCallBacksResponse.canditintrests.equalsIgnoreCase("Counsultancy")) {
                     appcounsultancy.setChecked(true);
                 }
             }
@@ -2649,12 +2658,12 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtmotherdepartment.setText(newCallBacksResponse.motherJobdesc);
             }
 
-            if (newCallBacksResponse.consutancyDescr!= null && !newCallBacksResponse.consutancyDescr.isEmpty()) {
+            if (newCallBacksResponse.consutancyDescr != null && !newCallBacksResponse.consutancyDescr.isEmpty()) {
                 mEtcounsul.setText(newCallBacksResponse.consutancyDescr);
             }
 
-            if (newCallBacksResponse.studyinAbroadDesc!= null && !newCallBacksResponse.studyinAbroadDesc.isEmpty()) {
-                if (newCallBacksResponse.studyinAbroadDesc.equalsIgnoreCase( " yes")) {
+            if (newCallBacksResponse.studyinAbroadDesc != null && !newCallBacksResponse.studyinAbroadDesc.isEmpty()) {
+                if (newCallBacksResponse.studyinAbroadDesc.equalsIgnoreCase(" yes")) {
                     yes1.setChecked(true);
                 } else if (newCallBacksResponse.studyinAbroadDesc.equalsIgnoreCase("No ")) {
                     no1.setChecked(true);
@@ -2672,8 +2681,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtSibilingsDuration.setText(newCallBacksResponse.siblingCourse);
             }
 
-            if (newCallBacksResponse.visitDescriptiopn!= null && !newCallBacksResponse.visitDescriptiopn.isEmpty()) {
-                if (newCallBacksResponse.visitDescriptiopn.equalsIgnoreCase( " yes")) {
+            if (newCallBacksResponse.visitDescriptiopn != null && !newCallBacksResponse.visitDescriptiopn.isEmpty()) {
+                if (newCallBacksResponse.visitDescriptiopn.equalsIgnoreCase(" yes")) {
                     yesrb3.setChecked(true);
                 } else if (newCallBacksResponse.visitDescriptiopn.equalsIgnoreCase("No")) {
                     norb3.setChecked(true);
@@ -2684,8 +2693,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newCallBacksResponse.feedBackDescription != null && !newCallBacksResponse.feedBackDescription.isEmpty()) {
                 mEtfeedback.setText(newCallBacksResponse.feedBackDescription);
             }
-            if (newCallBacksResponse.abroadKnowledgeDesc!= null && !newCallBacksResponse.abroadKnowledgeDesc.isEmpty()) {
-                if (newCallBacksResponse.abroadKnowledgeDesc.equalsIgnoreCase( " yes")) {
+            if (newCallBacksResponse.abroadKnowledgeDesc != null && !newCallBacksResponse.abroadKnowledgeDesc.isEmpty()) {
+                if (newCallBacksResponse.abroadKnowledgeDesc.equalsIgnoreCase(" yes")) {
                     yes.setChecked(true);
                 } else if (newCallBacksResponse.abroadKnowledgeDesc.equalsIgnoreCase("No ")) {
                     no.setChecked(true);
@@ -2698,45 +2707,45 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newCallBacksResponse.visitDate != null && !newCallBacksResponse.visitDate.isEmpty()) {
                 mEtvisittext.setText(newCallBacksResponse.visitDate);
             }
-            if (newCallBacksResponse.callOtheStatus!= null && !newCallBacksResponse.callOtheStatus.isEmpty()) {
+            if (newCallBacksResponse.callOtheStatus != null && !newCallBacksResponse.callOtheStatus.isEmpty()) {
                 mEtotherstatus.setText(newCallBacksResponse.callOtheStatus);
             }
             if (newCallBacksResponse.motherOccupationSector != null && !newCallBacksResponse.motherOccupationSector.isEmpty()) {
                 if (newCallBacksResponse.motherOccupationSector.equalsIgnoreCase("Private ")) {
                     motherpvt.setChecked(true);
-                } else if (newCallBacksResponse.motherOccupationSector.equalsIgnoreCase("Govt")){
+                } else if (newCallBacksResponse.motherOccupationSector.equalsIgnoreCase("Govt")) {
                     mothergovt.setChecked(true);
                 }
             }
-            if (newCallBacksResponse.motherJobdesc!= null && !newCallBacksResponse.motherJobdesc.isEmpty()) {
+            if (newCallBacksResponse.motherJobdesc != null && !newCallBacksResponse.motherJobdesc.isEmpty()) {
                 mEtmotherdepartment.setText(newCallBacksResponse.motherJobdesc);
             }
 
-            if (newCallBacksResponse.intrestedCountry!= null && !newCallBacksResponse.intrestedCountry.isEmpty()) {
+            if (newCallBacksResponse.intrestedCountry != null && !newCallBacksResponse.intrestedCountry.isEmpty()) {
                 mSpinnerCountry.setSelection(spinnerPosition);
             }
 
-            if (newCallBacksResponse.interbranch!= null && !newCallBacksResponse.interbranch.isEmpty()) {
+            if (newCallBacksResponse.interbranch != null && !newCallBacksResponse.interbranch.isEmpty()) {
                 mSpinnerInterCourse.setSelection(spinnerintercoursePosition);
             }
-            if (newCallBacksResponse.interIntrestedCourse!= null && !newCallBacksResponse.interIntrestedCourse.isEmpty()) {
+            if (newCallBacksResponse.interIntrestedCourse != null && !newCallBacksResponse.interIntrestedCourse.isEmpty()) {
                 mSpinnerInterInterestedCourse.setSelection(spinnerinterintrestedcoursePosition);
             }
 
 
-            if (newCallBacksResponse.siblings!= null ) {
+            if (newCallBacksResponse.siblings != null) {
                 mSpinnerChildren.setSelection(newCallBacksResponse.siblings);
             }
 
-            if (newCallBacksResponse.entranceTestAttemts!= null) {
+            if (newCallBacksResponse.entranceTestAttemts != null) {
                 mSpinnerinterentranceAttempts.setSelection(newCallBacksResponse.entranceTestAttemts);
             }
 
-            if (newCallBacksResponse.state!= null && !newCallBacksResponse.state.isEmpty()) {
+            if (newCallBacksResponse.state != null && !newCallBacksResponse.state.isEmpty()) {
                 mSpinnerStates.setSelection(spinnerstatesPosition);
             }
 
-            if (newCallBacksResponse.leadfrom!= null && !newCallBacksResponse.leadfrom.isEmpty()) {
+            if (newCallBacksResponse.leadfrom != null && !newCallBacksResponse.leadfrom.isEmpty()) {
                 mEtSource.setText(newCallBacksResponse.leadfrom);
             }
            /* if (newCallBacksResponse.state!= null && !newCallBacksResponse.state.isEmpty()) {
@@ -2780,7 +2789,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     ssc.setChecked(true);
                 } else if (newPendingRemindersResponse.qalification.equalsIgnoreCase("Inter")) {
                     inter.setChecked(true);
-                } else if (newPendingRemindersResponse.qalification.equalsIgnoreCase("graduation")){
+                } else if (newPendingRemindersResponse.qalification.equalsIgnoreCase("graduation")) {
                     graduation.setChecked(true);
                 }
             }
@@ -2799,7 +2808,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtintermarks.setText("" + newPendingRemindersResponse.marks);
             }
 
-            if (newPendingRemindersResponse.entrenceTestName!= null && !newPendingRemindersResponse.entrenceTestName.isEmpty()) {
+            if (newPendingRemindersResponse.entrenceTestName != null && !newPendingRemindersResponse.entrenceTestName.isEmpty()) {
                 mEttenthEntranceExam.setText(newPendingRemindersResponse.entrenceTestName);
             }
             if (newPendingRemindersResponse.interbranch != null && !newPendingRemindersResponse.interbranch.isEmpty()) {
@@ -2832,7 +2841,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtGradpassyr.setText("" + newPendingRemindersResponse.graduationpassyear);
             }
 
-            if (newPendingRemindersResponse.fatherJob!= null && !newPendingRemindersResponse.fatherJob.isEmpty()) {
+            if (newPendingRemindersResponse.fatherJob != null && !newPendingRemindersResponse.fatherJob.isEmpty()) {
                 mEtGovtjobtitle.setText(newPendingRemindersResponse.fatherJob);
             }
             if (newPendingRemindersResponse.cast != null && !newPendingRemindersResponse.cast.isEmpty()) {
@@ -2842,7 +2851,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbbc.setChecked(true);
                 } else if (newPendingRemindersResponse.cast.equalsIgnoreCase("sc")) {
                     rbsc.setChecked(true);
-                } else if (newPendingRemindersResponse.cast.equalsIgnoreCase("st")){
+                } else if (newPendingRemindersResponse.cast.equalsIgnoreCase("st")) {
                     rbst.setChecked(true);
                 }
             }
@@ -2852,16 +2861,16 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newPendingRemindersResponse.stateOfintrest != null && !newPendingRemindersResponse.stateOfintrest.isEmpty()) {
                 if (newPendingRemindersResponse.stateOfintrest.equalsIgnoreCase("Local")) {
                     local.setChecked(true);
-                } else if (newPendingRemindersResponse.stateOfintrest.equalsIgnoreCase("Abroad")){
+                } else if (newPendingRemindersResponse.stateOfintrest.equalsIgnoreCase("Abroad")) {
                     abroad.setChecked(true);
-                }else if (newPendingRemindersResponse.stateOfintrest.equalsIgnoreCase("Long Term")){
+                } else if (newPendingRemindersResponse.stateOfintrest.equalsIgnoreCase("Long Term")) {
                     rbstateofintrestlongterm.setChecked(true);
                 }
             }
             if (newPendingRemindersResponse.courseType != null && !newPendingRemindersResponse.courseType.isEmpty()) {
                 if (newPendingRemindersResponse.courseType.equalsIgnoreCase("Short Term ")) {
                     shortterm.setChecked(true);
-                } else if (newPendingRemindersResponse.courseType.equalsIgnoreCase("Long Term")){
+                } else if (newPendingRemindersResponse.courseType.equalsIgnoreCase("Long Term")) {
                     longterm.setChecked(true);
                 }
             }
@@ -2926,7 +2935,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbswitchoff.setChecked(true);
                 } else if (newPendingRemindersResponse.callStatus.equalsIgnoreCase("oc")) {
                     rboutofcoverage.setChecked(true);
-                } else if (newPendingRemindersResponse.callStatus.equalsIgnoreCase("others")){
+                } else if (newPendingRemindersResponse.callStatus.equalsIgnoreCase("others")) {
                     rbothers.setChecked(true);
                 }
 
@@ -2944,38 +2953,38 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newPendingRemindersResponse.fatherOcupat != null && !newPendingRemindersResponse.fatherOcupat.isEmpty()) {
                 if (newPendingRemindersResponse.fatherOcupat.equalsIgnoreCase("Job ")) {
                     fatherjob.setChecked(true);
-                } else if (newPendingRemindersResponse.fatherOcupat.equalsIgnoreCase("Bussiness")){
+                } else if (newPendingRemindersResponse.fatherOcupat.equalsIgnoreCase("Bussiness")) {
                     bussiness.setChecked(true);
-                }else if (newPendingRemindersResponse.fatherOcupat.equalsIgnoreCase("Farmer")){
+                } else if (newPendingRemindersResponse.fatherOcupat.equalsIgnoreCase("Farmer")) {
                     farmer.setChecked(true);
                 }
             }
             if (newPendingRemindersResponse.occSector != null && !newPendingRemindersResponse.occSector.isEmpty()) {
                 if (newPendingRemindersResponse.occSector.equalsIgnoreCase("Private ")) {
                     pvt.setChecked(true);
-                } else if (newPendingRemindersResponse.occSector.equalsIgnoreCase("Govt")){
+                } else if (newPendingRemindersResponse.occSector.equalsIgnoreCase("Govt")) {
                     govt.setChecked(true);
                 }
             }
             if (newPendingRemindersResponse.mIncomeinLaks != null) {
-                mEtmotherincome.setText(""+newPendingRemindersResponse.mIncomeinLaks);
+                mEtmotherincome.setText("" + newPendingRemindersResponse.mIncomeinLaks);
             }
 
-            if (newPendingRemindersResponse.fatherJobdescription!= null && !newPendingRemindersResponse.fatherJobdescription.isEmpty()) {
+            if (newPendingRemindersResponse.fatherJobdescription != null && !newPendingRemindersResponse.fatherJobdescription.isEmpty()) {
                 mEtfatherbussiness.setText(newPendingRemindersResponse.fatherJobdescription);
             }
 
 
-            if (newPendingRemindersResponse.siblingCourse!= null && !newPendingRemindersResponse.siblingCourse.isEmpty()) {
+            if (newPendingRemindersResponse.siblingCourse != null && !newPendingRemindersResponse.siblingCourse.isEmpty()) {
                 mEtSibilingsDuration.setText(newPendingRemindersResponse.siblingCourse);
             }
-            if (newPendingRemindersResponse.visitMsg!= null && !newPendingRemindersResponse.visitMsg.isEmpty()) {
+            if (newPendingRemindersResponse.visitMsg != null && !newPendingRemindersResponse.visitMsg.isEmpty()) {
                 mEtvisitmessage.setText(newPendingRemindersResponse.visitMsg);
             }
-            if (newPendingRemindersResponse.visitStatus != null ) {
+            if (newPendingRemindersResponse.visitStatus != null) {
                 if (newPendingRemindersResponse.visitStatus.equals(true)) {
                     yesrb3.setChecked(true);
-                } else if (newPendingRemindersResponse.visitStatus.equals(false)){
+                } else if (newPendingRemindersResponse.visitStatus.equals(false)) {
                     norb3.setChecked(true);
                 }
             }
@@ -2983,7 +2992,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newPendingRemindersResponse.canditintrests != null && !newPendingRemindersResponse.canditintrests.isEmpty()) {
                 if (newPendingRemindersResponse.canditintrests.equalsIgnoreCase("Parent")) {
                     appparent.setChecked(true);
-                } else if (newPendingRemindersResponse.canditintrests.equalsIgnoreCase("Counsultancy")){
+                } else if (newPendingRemindersResponse.canditintrests.equalsIgnoreCase("Counsultancy")) {
                     appcounsultancy.setChecked(true);
                 }
             }
@@ -3005,12 +3014,12 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtmotherdepartment.setText(newPendingRemindersResponse.motherJobdesc);
             }
 
-            if (newPendingRemindersResponse.consutancyDescr!= null && !newPendingRemindersResponse.consutancyDescr.isEmpty()) {
+            if (newPendingRemindersResponse.consutancyDescr != null && !newPendingRemindersResponse.consutancyDescr.isEmpty()) {
                 mEtcounsul.setText(newPendingRemindersResponse.consutancyDescr);
             }
 
-            if (newPendingRemindersResponse.studyinAbroadDesc!= null && !newPendingRemindersResponse.studyinAbroadDesc.isEmpty()) {
-                if (newPendingRemindersResponse.studyinAbroadDesc.equalsIgnoreCase( " yes")) {
+            if (newPendingRemindersResponse.studyinAbroadDesc != null && !newPendingRemindersResponse.studyinAbroadDesc.isEmpty()) {
+                if (newPendingRemindersResponse.studyinAbroadDesc.equalsIgnoreCase(" yes")) {
                     yes1.setChecked(true);
                 } else if (newPendingRemindersResponse.studyinAbroadDesc.equalsIgnoreCase("No ")) {
                     no1.setChecked(true);
@@ -3027,8 +3036,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtSibilingsDuration.setText(newPendingRemindersResponse.siblingCourse);
             }
 
-            if (newPendingRemindersResponse.visitDescriptiopn!= null && !newPendingRemindersResponse.visitDescriptiopn.isEmpty()) {
-                if (newPendingRemindersResponse.visitDescriptiopn.equalsIgnoreCase( " yes")) {
+            if (newPendingRemindersResponse.visitDescriptiopn != null && !newPendingRemindersResponse.visitDescriptiopn.isEmpty()) {
+                if (newPendingRemindersResponse.visitDescriptiopn.equalsIgnoreCase(" yes")) {
                     yesrb3.setChecked(true);
                 } else if (newPendingRemindersResponse.visitDescriptiopn.equalsIgnoreCase("No")) {
                     norb3.setChecked(true);
@@ -3039,8 +3048,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newPendingRemindersResponse.feedBackDescription != null && !newPendingRemindersResponse.feedBackDescription.isEmpty()) {
                 mEtfeedback.setText(newPendingRemindersResponse.feedBackDescription);
             }
-            if (newPendingRemindersResponse.abroadKnowledgeDesc!= null && !newPendingRemindersResponse.abroadKnowledgeDesc.isEmpty()) {
-                if (newPendingRemindersResponse.abroadKnowledgeDesc.equalsIgnoreCase( " yes")) {
+            if (newPendingRemindersResponse.abroadKnowledgeDesc != null && !newPendingRemindersResponse.abroadKnowledgeDesc.isEmpty()) {
+                if (newPendingRemindersResponse.abroadKnowledgeDesc.equalsIgnoreCase(" yes")) {
                     yes.setChecked(true);
                 } else if (newCallBacksResponse.abroadKnowledgeDesc.equalsIgnoreCase("No ")) {
                     no.setChecked(true);
@@ -3054,38 +3063,38 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newPendingRemindersResponse.visitDate != null && !newPendingRemindersResponse.visitDate.isEmpty()) {
                 mEtvisittext.setText(newPendingRemindersResponse.visitDate);
             }
-            if (newPendingRemindersResponse.callOtheStatus!= null && !newPendingRemindersResponse.callOtheStatus.isEmpty()) {
+            if (newPendingRemindersResponse.callOtheStatus != null && !newPendingRemindersResponse.callOtheStatus.isEmpty()) {
                 mEtotherstatus.setText(newPendingRemindersResponse.callOtheStatus);
             }
 
             if (newPendingRemindersResponse.motherOccupationSector != null && !newPendingRemindersResponse.motherOccupationSector.isEmpty()) {
                 if (newPendingRemindersResponse.motherOccupationSector.equalsIgnoreCase("Private ")) {
                     motherpvt.setChecked(true);
-                } else if (newPendingRemindersResponse.motherOccupationSector.equalsIgnoreCase("Govt")){
+                } else if (newPendingRemindersResponse.motherOccupationSector.equalsIgnoreCase("Govt")) {
                     mothergovt.setChecked(true);
                 }
             }
 
-            if (newPendingRemindersResponse.interbranch!= null && !newPendingRemindersResponse.interbranch.isEmpty()) {
+            if (newPendingRemindersResponse.interbranch != null && !newPendingRemindersResponse.interbranch.isEmpty()) {
                 mSpinnerInterCourse.setSelection(spinnerintercoursePosition);
             }
-            if (newPendingRemindersResponse.interIntrestedCourse!= null && !newPendingRemindersResponse.interIntrestedCourse.isEmpty()) {
+            if (newPendingRemindersResponse.interIntrestedCourse != null && !newPendingRemindersResponse.interIntrestedCourse.isEmpty()) {
                 mSpinnerInterInterestedCourse.setSelection(spinnerinterintrestedcoursePosition);
             }
 
-            if (newPendingRemindersResponse.siblings!= null ) {
+            if (newPendingRemindersResponse.siblings != null) {
                 mSpinnerChildren.setSelection(newPendingRemindersResponse.siblings);
             }
 
-            if (newPendingRemindersResponse.entranceTestAttemts!= null) {
+            if (newPendingRemindersResponse.entranceTestAttemts != null) {
                 mSpinnerinterentranceAttempts.setSelection(newPendingRemindersResponse.entranceTestAttemts);
             }
 
-            if (newPendingRemindersResponse.state!= null && !newPendingRemindersResponse.state.isEmpty()) {
+            if (newPendingRemindersResponse.state != null && !newPendingRemindersResponse.state.isEmpty()) {
                 mSpinnerStates.setSelection(spinnerstatesPosition);
             }
 
-            if (newPendingRemindersResponse.leadfrom!= null && !newPendingRemindersResponse.leadfrom.isEmpty()) {
+            if (newPendingRemindersResponse.leadfrom != null && !newPendingRemindersResponse.leadfrom.isEmpty()) {
                 mEtSource.setText(newPendingRemindersResponse.leadfrom);
             }
            /* if (newPendingRemindersResponse.state!= null && !newPendingRemindersResponse.state.isEmpty()) {
@@ -3129,7 +3138,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     ssc.setChecked(true);
                 } else if (newTodaycallBacksResponse.qalification.equalsIgnoreCase("Inter")) {
                     inter.setChecked(true);
-                } else if (newTodaycallBacksResponse.qalification.equalsIgnoreCase("graduation")){
+                } else if (newTodaycallBacksResponse.qalification.equalsIgnoreCase("graduation")) {
                     graduation.setChecked(true);
                 }
             }
@@ -3144,10 +3153,10 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEttenthinterestedbranch.setText(newTodaycallBacksResponse.sSCintrestedBranch);
             }
 
-            if (newTodaycallBacksResponse.fatherJob!= null && !newTodaycallBacksResponse.fatherJob.isEmpty()) {
+            if (newTodaycallBacksResponse.fatherJob != null && !newTodaycallBacksResponse.fatherJob.isEmpty()) {
                 mEtGovtjobtitle.setText(newTodaycallBacksResponse.fatherJob);
             }
-            if (newTodaycallBacksResponse.entrenceTestName!= null && !newTodaycallBacksResponse.entrenceTestName.isEmpty()) {
+            if (newTodaycallBacksResponse.entrenceTestName != null && !newTodaycallBacksResponse.entrenceTestName.isEmpty()) {
                 mEttenthEntranceExam.setText(newTodaycallBacksResponse.entrenceTestName);
             }
             if (newTodaycallBacksResponse.interbranch != null && !newTodaycallBacksResponse.interbranch.isEmpty()) {
@@ -3186,7 +3195,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbbc.setChecked(true);
                 } else if (newTodaycallBacksResponse.cast.equalsIgnoreCase("sc")) {
                     rbsc.setChecked(true);
-                } else if (newTodaycallBacksResponse.cast.equalsIgnoreCase("st")){
+                } else if (newTodaycallBacksResponse.cast.equalsIgnoreCase("st")) {
                     rbst.setChecked(true);
                 }
             }
@@ -3196,7 +3205,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodaycallBacksResponse.stateOfintrest != null && !newTodaycallBacksResponse.stateOfintrest.isEmpty()) {
                 if (newTodaycallBacksResponse.stateOfintrest.equalsIgnoreCase("local")) {
                     local.setChecked(true);
-                } else if (newTodaycallBacksResponse.stateOfintrest.equalsIgnoreCase("abroad")){
+                } else if (newTodaycallBacksResponse.stateOfintrest.equalsIgnoreCase("abroad")) {
                     abroad.setChecked(true);
                 }
             }
@@ -3260,7 +3269,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                     rbswitchoff.setChecked(true);
                 } else if (newTodaycallBacksResponse.callStatus.equalsIgnoreCase("oc")) {
                     rboutofcoverage.setChecked(true);
-                } else if (newTodaycallBacksResponse.callStatus.equalsIgnoreCase("others")){
+                } else if (newTodaycallBacksResponse.callStatus.equalsIgnoreCase("others")) {
                     rbothers.setChecked(true);
                 }
 
@@ -3269,7 +3278,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 if (newTodaycallBacksResponse.courseType.equalsIgnoreCase("Short Term ")) {
                     shortterm.setChecked(true);
 
-                } else if (newTodaycallBacksResponse.courseType.equalsIgnoreCase("Long Term")){
+                } else if (newTodaycallBacksResponse.courseType.equalsIgnoreCase("Long Term")) {
                     longterm.setChecked(true);
                 }
 
@@ -3285,38 +3294,38 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodaycallBacksResponse.fatherOcupat != null && !newTodaycallBacksResponse.fatherOcupat.isEmpty()) {
                 if (newTodaycallBacksResponse.fatherOcupat.equalsIgnoreCase("Job ")) {
                     fatherjob.setChecked(true);
-                } else if (newTodaycallBacksResponse.fatherOcupat.equalsIgnoreCase("Bussiness")){
+                } else if (newTodaycallBacksResponse.fatherOcupat.equalsIgnoreCase("Bussiness")) {
                     bussiness.setChecked(true);
-                }else if (newTodaycallBacksResponse.fatherOcupat.equalsIgnoreCase("Farmer")){
+                } else if (newTodaycallBacksResponse.fatherOcupat.equalsIgnoreCase("Farmer")) {
                     farmer.setChecked(true);
                 }
             }
             if (newTodaycallBacksResponse.occSector != null && !newTodaycallBacksResponse.occSector.isEmpty()) {
                 if (newTodaycallBacksResponse.occSector.equalsIgnoreCase("Private ")) {
                     pvt.setChecked(true);
-                } else if (newTodaycallBacksResponse.occSector.equalsIgnoreCase("Govt")){
+                } else if (newTodaycallBacksResponse.occSector.equalsIgnoreCase("Govt")) {
                     govt.setChecked(true);
                 }
             }
             if (newTodaycallBacksResponse.mIncomeinLaks != null) {
-                mEtmotherincome.setText(""+newTodaycallBacksResponse.mIncomeinLaks);
+                mEtmotherincome.setText("" + newTodaycallBacksResponse.mIncomeinLaks);
             }
 
-            if (newTodaycallBacksResponse.fatherJobdescription!= null && !newTodaycallBacksResponse.fatherJobdescription.isEmpty()) {
+            if (newTodaycallBacksResponse.fatherJobdescription != null && !newTodaycallBacksResponse.fatherJobdescription.isEmpty()) {
                 mEtfatherbussiness.setText(newTodaycallBacksResponse.fatherJobdescription);
             }
 
-            if (newTodaycallBacksResponse.siblingCourse!= null && !newTodaycallBacksResponse.siblingCourse.isEmpty()) {
+            if (newTodaycallBacksResponse.siblingCourse != null && !newTodaycallBacksResponse.siblingCourse.isEmpty()) {
                 mEtSibilingsDuration.setText(newTodaycallBacksResponse.siblingCourse);
             }
-            if (newTodaycallBacksResponse.visitMsg!= null && !newTodaycallBacksResponse.visitMsg.isEmpty()) {
+            if (newTodaycallBacksResponse.visitMsg != null && !newTodaycallBacksResponse.visitMsg.isEmpty()) {
                 mEtvisitmessage.setText(newTodaycallBacksResponse.visitMsg);
             }
 
-            if (newTodaycallBacksResponse.visitStatus != null ) {
+            if (newTodaycallBacksResponse.visitStatus != null) {
                 if (newTodaycallBacksResponse.visitStatus.equals(true)) {
                     yesrb3.setChecked(true);
-                } else if (newTodaycallBacksResponse.visitStatus.equals(false)){
+                } else if (newTodaycallBacksResponse.visitStatus.equals(false)) {
                     norb3.setChecked(true);
                 }
             }
@@ -3324,7 +3333,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodaycallBacksResponse.canditintrests != null && !newTodaycallBacksResponse.canditintrests.isEmpty()) {
                 if (newTodaycallBacksResponse.canditintrests.equalsIgnoreCase("Parent")) {
                     appparent.setChecked(true);
-                } else if (newTodaycallBacksResponse.canditintrests.equalsIgnoreCase("Counsultancy")){
+                } else if (newTodaycallBacksResponse.canditintrests.equalsIgnoreCase("Counsultancy")) {
                     appcounsultancy.setChecked(true);
                 }
             }
@@ -3343,12 +3352,12 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             if (newTodaycallBacksResponse.motherJobdesc != null && !newTodaycallBacksResponse.motherJobdesc.isEmpty()) {
                 mEtmotherdepartment.setText(newTodaycallBacksResponse.motherJobdesc);
             }
-            if (newTodaycallBacksResponse.consutancyDescr!= null && !newTodaycallBacksResponse.consutancyDescr.isEmpty()) {
+            if (newTodaycallBacksResponse.consutancyDescr != null && !newTodaycallBacksResponse.consutancyDescr.isEmpty()) {
                 mEtcounsul.setText(newTodaycallBacksResponse.consutancyDescr);
             }
 
-            if (newTodaycallBacksResponse.studyinAbroadDesc!= null && !newTodaycallBacksResponse.studyinAbroadDesc.isEmpty()) {
-                if (newTodaycallBacksResponse.studyinAbroadDesc.equalsIgnoreCase( " yes")) {
+            if (newTodaycallBacksResponse.studyinAbroadDesc != null && !newTodaycallBacksResponse.studyinAbroadDesc.isEmpty()) {
+                if (newTodaycallBacksResponse.studyinAbroadDesc.equalsIgnoreCase(" yes")) {
                     yes1.setChecked(true);
                 } else if (newTodaycallBacksResponse.studyinAbroadDesc.equalsIgnoreCase("No ")) {
                     no1.setChecked(true);
@@ -3367,8 +3376,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             }
 
 
-            if (newTodaycallBacksResponse.visitDescriptiopn!= null && !newTodaycallBacksResponse.visitDescriptiopn.isEmpty()) {
-                if (newTodaycallBacksResponse.visitDescriptiopn.equalsIgnoreCase( " yes")) {
+            if (newTodaycallBacksResponse.visitDescriptiopn != null && !newTodaycallBacksResponse.visitDescriptiopn.isEmpty()) {
+                if (newTodaycallBacksResponse.visitDescriptiopn.equalsIgnoreCase(" yes")) {
                     yesrb3.setChecked(true);
                 } else if (newTodaycallBacksResponse.visitDescriptiopn.equalsIgnoreCase("No")) {
                     norb3.setChecked(true);
@@ -3380,8 +3389,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtfeedback.setText(newTodaycallBacksResponse.feedBackDescription);
             }
 
-            if (newTodaycallBacksResponse.abroadKnowledgeDesc!= null && !newTodaycallBacksResponse.abroadKnowledgeDesc.isEmpty()) {
-                if (newTodaycallBacksResponse.abroadKnowledgeDesc.equalsIgnoreCase( " yes")) {
+            if (newTodaycallBacksResponse.abroadKnowledgeDesc != null && !newTodaycallBacksResponse.abroadKnowledgeDesc.isEmpty()) {
+                if (newTodaycallBacksResponse.abroadKnowledgeDesc.equalsIgnoreCase(" yes")) {
                     yes.setChecked(true);
                 } else if (newCallBacksResponse.abroadKnowledgeDesc.equalsIgnoreCase("No ")) {
                     no.setChecked(true);
@@ -3395,45 +3404,45 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                 mEtvisittext.setText(newTodaycallBacksResponse.visitDate);
             }
 
-            if (newTodaycallBacksResponse.callOtheStatus!= null && !newTodaycallBacksResponse.callOtheStatus.isEmpty()) {
+            if (newTodaycallBacksResponse.callOtheStatus != null && !newTodaycallBacksResponse.callOtheStatus.isEmpty()) {
                 mEtotherstatus.setText(newTodaycallBacksResponse.callOtheStatus);
             }
 
             if (newTodaycallBacksResponse.motherOccupationSector != null && !newTodaycallBacksResponse.motherOccupationSector.isEmpty()) {
                 if (newTodaycallBacksResponse.motherOccupationSector.equalsIgnoreCase("Private ")) {
                     motherpvt.setChecked(true);
-                } else if (newTodaycallBacksResponse.motherOccupationSector.equalsIgnoreCase("Govt")){
+                } else if (newTodaycallBacksResponse.motherOccupationSector.equalsIgnoreCase("Govt")) {
                     mothergovt.setChecked(true);
                 }
             }
-            if (newTodaycallBacksResponse.motherJobdesc!= null && !newTodaycallBacksResponse.motherJobdesc.isEmpty()) {
+            if (newTodaycallBacksResponse.motherJobdesc != null && !newTodaycallBacksResponse.motherJobdesc.isEmpty()) {
                 mEtmotherdepartment.setText(newTodaycallBacksResponse.motherJobdesc);
             }
 
-            if (newTodaycallBacksResponse.intrestedCountry!= null && !newTodaycallBacksResponse.intrestedCountry.isEmpty()) {
+            if (newTodaycallBacksResponse.intrestedCountry != null && !newTodaycallBacksResponse.intrestedCountry.isEmpty()) {
                 mSpinnerCountry.setSelection(spinnerPosition);
             }
 
-            if (newTodaycallBacksResponse.interbranch!= null && !newTodaycallBacksResponse.interbranch.isEmpty()) {
+            if (newTodaycallBacksResponse.interbranch != null && !newTodaycallBacksResponse.interbranch.isEmpty()) {
                 mSpinnerInterCourse.setSelection(spinnerintercoursePosition);
             }
-            if (newTodaycallBacksResponse.interIntrestedCourse!= null && !newTodaycallBacksResponse.interIntrestedCourse.isEmpty()) {
+            if (newTodaycallBacksResponse.interIntrestedCourse != null && !newTodaycallBacksResponse.interIntrestedCourse.isEmpty()) {
                 mSpinnerInterInterestedCourse.setSelection(spinnerinterintrestedcoursePosition);
             }
 
-            if (newTodaycallBacksResponse.siblings!= null ) {
+            if (newTodaycallBacksResponse.siblings != null) {
                 mSpinnerChildren.setSelection(newTodaycallBacksResponse.siblings);
             }
 
-            if (newTodaycallBacksResponse.entranceTestAttemts!= null) {
+            if (newTodaycallBacksResponse.entranceTestAttemts != null) {
                 mSpinnerinterentranceAttempts.setSelection(newTodaycallBacksResponse.entranceTestAttemts);
             }
 
-            if (newTodaycallBacksResponse.state!= null && !newTodaycallBacksResponse.state.isEmpty()) {
+            if (newTodaycallBacksResponse.state != null && !newTodaycallBacksResponse.state.isEmpty()) {
                 mSpinnerStates.setSelection(spinnerstatesPosition);
             }
 
-            if (newTodaycallBacksResponse.leadfrom!= null && !newTodaycallBacksResponse.leadfrom.isEmpty()) {
+            if (newTodaycallBacksResponse.leadfrom != null && !newTodaycallBacksResponse.leadfrom.isEmpty()) {
                 mEtSource.setText(newTodaycallBacksResponse.leadfrom);
             }
 /*
@@ -3444,9 +3453,460 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         }
 
 
-
     }
 
+    private void CheckNumber() {
+
+        contactNumber = mEtcontactnumber.getText().toString();
+        // Log.e("contact number",""+contactNumber);
+
+        if (contactNumber != null && !contactNumber.isEmpty()) {
+
+            ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            Call<CheckResponse> checkResponseCall = apiInterface.getCheckResponse(contactNumber);
+            checkResponseCall.enqueue(new Callback<CheckResponse>() {
+                @Override
+                public void onResponse(Call<CheckResponse> call, final Response<CheckResponse> response) {
+                    Log.e("response:",""+response);
+                    if (response != null && response.isSuccessful()) {
+
+
+                        if (response.body().errorMessage.equalsIgnoreCase("Success")) {
+
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(NewformActivity.this);
+                            builder.setCancelable(false);
+                            builder.setTitle("Record Found");
+                            builder.setMessage("If You Want to fill Data !!!");
+                            builder.setPositiveButton("FillData", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+
+
+                                    if (response.body().leadName != null && !response.body().leadName.isEmpty()) {
+                                        mEtstdname.setText(response.body().leadName);
+                                    }
+
+                                    if (response.body().leadfrom != null && !response.body().leadfrom.isEmpty()) {
+                                        mEtSource.setText(response.body().leadfrom);
+                                    }
+                                    if (response.body().country != null && !response.body().country.isEmpty()) {
+                                        mEtLocation.setText(response.body().country);
+                                    }
+                                    if (response.body().gender != null) {
+
+                                        if (response.body().gender.equalsIgnoreCase("male")) {
+                                            male.setChecked(true);
+                                        } else {
+                                            female.setChecked(true);
+                                        }
+                                    }
+
+                                    if (response.body().areaName != null && !response.body().areaName.isEmpty()) {
+                                        mEtAreaname.setText(response.body().areaName);
+                                    }
+
+
+                                    if (response.body().city != null && !response.body().city.isEmpty()) {
+                                        mEtCity.setText(response.body().city);
+                                    }
+
+                                    if (response.body().alternativecontact != null && !response.body().alternativecontact.isEmpty()) {
+                                        mEtStdaltcontact.setText(response.body().alternativecontact);
+                                    }
+
+
+                                    if (response.body().fatherJob != null && !response.body().fatherJob.isEmpty()) {
+                                        mEtGovtjobtitle.setText(response.body().fatherJob);
+                                    }
+                                    if (response.body().qalification != null) {
+
+                                        if (response.body().qalification.equalsIgnoreCase("SSC ")) {
+                                            ssc.setChecked(true);
+                                        } else if (response.body().qalification.equalsIgnoreCase("Inter")) {
+                                            inter.setChecked(true);
+                                        } else if (response.body().qalification.equalsIgnoreCase("graduation")) {
+                                            graduation.setChecked(true);
+                                        }
+
+                                    }
+
+                                    if (response.body().sSCmarks != null) {
+                                        //  mEttenthmarks.setText((int) Double.parseDouble(String.valueOf(newCallBacksResponse.sSCmarks)));
+                                        mEttenthmarks.setText("" + response.body().sSCmarks);
+                                    }
+                                    if (response.body().sscfuturecourse != null && !response.body().sscfuturecourse.isEmpty()) {
+                                        mEttenthInterestdCourse.setText(response.body().sscfuturecourse);
+                                    }
+                                    if (response.body().sSCintrestedBranch != null && !response.body().sSCintrestedBranch.isEmpty()) {
+                                        mEttenthinterestedbranch.setText(response.body().sSCintrestedBranch);
+                                    }
+
+                                    if (response.body().entrenceTestName != null && !response.body().entrenceTestName.isEmpty()) {
+                                        mEttenthEntranceExam.setText(response.body().entrenceTestName);
+                                    }
+                                    if (response.body().marks != null) {
+                                        mEtintermarks.setText("" + response.body().expectedMarks);
+                                    }
+                                    if (response.body().interbranch != null && !response.body().interbranch.isEmpty()) {
+                                        mEtinterCourse.setText(response.body().interbranch);
+                                    }
+                                    if (response.body().interPassyear != null) {
+                                        mEtinterpassyr.setText("" + response.body().interPassyear);
+                                    }
+                                    if (response.body().expectedMarks != null) {
+                                        mEtattempeExpectedmarks.setText("" + response.body().expectedMarks);
+                                    }
+                                    if (response.body().previousMarks != null) {
+                                        mEtPreviousmarks.setText("" + response.body().previousMarks);
+                                    }
+          /*  if (newCallBacksResponse.marks != null) {
+                mEtmarksobtained.setText("" + newCallBacksResponse.marks);
+            }*/
+                                    if (response.body().graduationUniversity != null && !response.body().graduationUniversity.isEmpty()) {
+                                        mEtGraduniversity.setText(response.body().graduationUniversity);
+                                    }
+
+                                    if (response.body().graduationbranch != null && !response.body().graduationbranch.isEmpty()) {
+                                        mEtGradDegree.setText(response.body().graduationbranch);
+                                    }
+
+                                    if (response.body().graduationMarks != null) {
+                                        mEtGradDegreemarks.setText("" + response.body().graduationMarks);
+                                    }
+                                    if (response.body().graduationpassyear != null) {
+                                        mEtGradpassyr.setText("" + response.body().graduationpassyear);
+                                    }
+                                    if (response.body().cast != null && !response.body().cast.isEmpty()) {
+                                        if (response.body().cast.equalsIgnoreCase("oc ")) {
+                                            rboc.setChecked(true);
+                                        } else if (response.body().cast.equalsIgnoreCase("bc")) {
+                                            rbbc.setChecked(true);
+                                        } else if (response.body().cast.equalsIgnoreCase("sc")) {
+                                            rbsc.setChecked(true);
+                                        } else if (response.body().cast.equalsIgnoreCase("st")) {
+                                            rbst.setChecked(true);
+                                        }
+                                    }
+                                    if (response.body().subCast != null && !response.body().subCast.isEmpty()) {
+                                        mEtsubcaste.setText(response.body().subCast);
+                                    }
+                                    if (response.body().stateOfintrest != null && !response.body().stateOfintrest.isEmpty()) {
+                                        if (response.body().stateOfintrest.equalsIgnoreCase("Local")) {
+                                            local.setChecked(true);
+                                        } else if (response.body().stateOfintrest.equalsIgnoreCase("Abroad")) {
+                                            abroad.setChecked(true);
+                                        } else if (response.body().stateOfintrest.equalsIgnoreCase("Long Term")) {
+                                            rbstateofintrestlongterm.setChecked(true);
+                                        }
+                                    }
+
+                                    if (response.body().courseType != null && !response.body().courseType.isEmpty()) {
+                                        if (response.body().courseType.equalsIgnoreCase("Short Term ")) {
+                                            shortterm.setChecked(true);
+                                        } else if (response.body().courseType.equalsIgnoreCase("Long Term")) {
+                                            longterm.setChecked(true);
+                                        }
+                                    }
+
+                                    if (response.body().entrenceTestName != null && !response.body().entrenceTestName.isEmpty()) {
+                                        mEtRegistrationTest.setText(response.body().entrenceTestName);
+                                    }
+                                    if (response.body().entrancetestmarks != null) {
+                                        mEtEntrancetestmarks.setText("" + response.body().entrancetestmarks);
+                                    }
+                                    if (response.body().fatherName != null && !response.body().fatherName.isEmpty()) {
+                                        mEtPname.setText(response.body().fatherName);
+                                    }
+                                    if (response.body().matherName != null && !response.body().matherName.isEmpty()) {
+                                        mEtmothername.setText(response.body().matherName);
+                                    }
+                                    if (response.body().fathercontact != null && !response.body().fathercontact.isEmpty()) {
+                                        mEtpphno.setText(response.body().fathercontact);
+                                    }
+                                    if (response.body().mathercon != null && !response.body().mathercon.isEmpty()) {
+                                        mEtParentAlt.setText(response.body().mathercon);
+                                    }
+                                    if (response.body().income != null && !response.body().income.isEmpty()) {
+                                        mEtIncomeinLakhs.setText(response.body().income);
+                                    }
+
+                                    if (response.body().country != null && !response.body().country.isEmpty()) {
+                                        mEtCountryOthers.setText(response.body().country);
+                                    }
+                                    if (response.body().localBudget != null) {
+                                        mEtLocalBudget.setText("" + response.body().localBudget);
+                                    }
+                                    if (response.body().abroadBudget != null) {
+                                        mEtAbroadBudget.setText("" + response.body().abroadBudget);
+                                    }
+
+                                    if (response.body().visitType != null && !response.body().visitType.isEmpty()) {
+                                        if (response.body().visitType.equalsIgnoreCase("House visit")) {
+                                            house.setChecked(true);
+                                        } else if (response.body().visitType.equalsIgnoreCase("Office visit")) {
+                                            rbofficevisit.setChecked(true);
+                                        }/* else {
+                    personal.setChecked(true);
+                }*/
+
+                                    }
+                                    if (response.body().finalFeedBack != null && !response.body().finalFeedBack.isEmpty()) {
+                                        mEtremarks.setText(response.body().finalFeedBack);
+                                    }
+
+                                    if (response.body().callStatus != null && !response.body().callStatus.isEmpty()) {
+                                        if (response.body().callStatus.equalsIgnoreCase("int")) {
+                                            rbintersted.setChecked(true);
+                                        } else if (response.body().callStatus.equalsIgnoreCase("notint")) {
+                                            rbnotinterested.setChecked(true);
+                                        } else if (response.body().callStatus.equalsIgnoreCase("Call Back")) {
+                                            rbcallback.setChecked(true);
+                                            mEtOthers.setVisibility(View.VISIBLE);
+                                        } else if (response.body().callStatus.equalsIgnoreCase("nr")) {
+                                            rbnottresponding.setChecked(true);
+                                        } else if (response.body().callStatus.equalsIgnoreCase("so")) {
+                                            rbswitchoff.setChecked(true);
+                                        } else if (response.body().callStatus.equalsIgnoreCase("oc")) {
+                                            rboutofcoverage.setChecked(true);
+                                        } else if (response.body().callStatus.equalsIgnoreCase("others")) {
+                                            rbothers.setChecked(true);
+                                        }
+
+                                    }
+
+                                    if (response.body().fatherOcupat != null && !response.body().fatherOcupat.isEmpty()) {
+                                        if (response.body().fatherOcupat.equalsIgnoreCase("Job ")) {
+                                            fatherjob.setChecked(true);
+                                        } else if (response.body().fatherOcupat.equalsIgnoreCase("Bussiness")) {
+                                            bussiness.setChecked(true);
+                                        } else if (response.body().fatherOcupat.equalsIgnoreCase("Farmer")) {
+                                            farmer.setChecked(true);
+                                        }
+                                    }
+                                    if (response.body().occSector != null && !response.body().occSector.isEmpty()) {
+                                        if (response.body().occSector.equalsIgnoreCase("Private ")) {
+                                            pvt.setChecked(true);
+                                        } else if (response.body().occSector.equalsIgnoreCase("Govt")) {
+                                            govt.setChecked(true);
+                                        }
+                                    }
+/*
+            if(response.body().reminderdateTime!=null && !response.body().reminderdateTime.isEmpty()){
+                mEtremainderdate.setText(response.body().reminderdateTime);
+            }*/
+                                    if (response.body().reminderMessage != null && !response.body().reminderMessage.isEmpty()) {
+                                        mEtremtext.setText(response.body().reminderMessage);
+                                    }
+
+                                    if (response.body().mIncomeinLaks != null) {
+                                        mEtmotherincome.setText("" + response.body().mIncomeinLaks);
+                                    }
+
+
+                                    if (response.body().fatherJobdescription != null && !response.body().fatherJobdescription.isEmpty()) {
+                                        mEtfatherbussiness.setText(response.body().fatherJobdescription);
+                                    }
+
+                                    if (response.body().siblingCourse != null && !response.body().siblingCourse.isEmpty()) {
+                                        mEtSibilingsDuration.setText(response.body().siblingCourse);
+                                    }
+
+                                    if (response.body().visitMsg != null && !response.body().visitMsg.isEmpty()) {
+                                        mEtvisitmessage.setText(response.body().visitMsg);
+                                    }
+
+                                    if (response.body().visitStatus != null) {
+                                        if (response.body().visitStatus.equals(true)) {
+                                            yesrb3.setChecked(true);
+                                        } else if (response.body().visitStatus.equals(false)) {
+                                            norb3.setChecked(true);
+                                        }
+                                    }
+
+                                    if (response.body().canditintrests != null && !response.body().canditintrests.isEmpty()) {
+                                        if (response.body().canditintrests.equalsIgnoreCase("Parent")) {
+                                            appparent.setChecked(true);
+                                        } else if (response.body().canditintrests.equalsIgnoreCase("Counsultancy")) {
+                                            appcounsultancy.setChecked(true);
+                                        }
+                                    }
+
+                                    if (response.body().entranceQualification != null && !response.body().entranceQualification.isEmpty()) {
+                                        mEttenthEntranceQual.setText(response.body().entranceQualification);
+                                    }
+                                    if (response.body().motherOccupationDesc != null && !response.body().motherOccupationDesc.isEmpty()) {
+                                        if (response.body().motherOccupationDesc.equalsIgnoreCase("Job ")) {
+                                            mjob.setChecked(true);
+                                        } else if (response.body().motherOccupationDesc.equalsIgnoreCase("House Wife")) {
+                                            housewife.setChecked(true);
+                                        }
+
+                                    }
+
+                                    if (response.body().motherJobdesc != null && !response.body().motherJobdesc.isEmpty()) {
+                                        mEtmotherdepartment.setText(response.body().motherJobdesc);
+                                    }
+
+                                    if (response.body().consutancyDescr != null && !response.body().consutancyDescr.isEmpty()) {
+                                        mEtcounsul.setText(response.body().consutancyDescr);
+                                    }
+
+                                    if (response.body().studyinAbroadDesc != null && !response.body().studyinAbroadDesc.isEmpty()) {
+                                        if (response.body().studyinAbroadDesc.equalsIgnoreCase(" yes")) {
+                                            yes1.setChecked(true);
+                                        } else if (response.body().studyinAbroadDesc.equalsIgnoreCase("No ")) {
+                                            no1.setChecked(true);
+                                        }
+
+                                    }
+
+                                    if (response.body().siblingCountry != null && !response.body().siblingCountry.isEmpty()) {
+                                        mEtabroad.setText(response.body().siblingCountry);
+                                    }
+                                    if (response.body().siblingFee != null && !response.body().siblingFee.isEmpty()) {
+                                        mEtSibilingsfee.setText(response.body().siblingFee);
+                                    }
+                                    if (response.body().siblingCourse != null && !response.body().siblingCourse.isEmpty()) {
+                                        mEtSibilingsDuration.setText(response.body().siblingCourse);
+                                    }
+
+                                    if (response.body().visitDescriptiopn != null && !response.body().visitDescriptiopn.isEmpty()) {
+                                        if (response.body().visitDescriptiopn.equalsIgnoreCase(" yes")) {
+                                            yesrb3.setChecked(true);
+                                        } else if (response.body().visitDescriptiopn.equalsIgnoreCase("No")) {
+                                            norb3.setChecked(true);
+                                        }
+
+                                    }
+
+                                    if (response.body().feedBackDescription != null && !response.body().feedBackDescription.isEmpty()) {
+                                        mEtfeedback.setText(response.body().feedBackDescription);
+                                    }
+                                    if (response.body().abroadKnowledgeDesc != null && !response.body().abroadKnowledgeDesc.isEmpty()) {
+                                        if (response.body().abroadKnowledgeDesc.equalsIgnoreCase(" yes")) {
+                                            yes.setChecked(true);
+                                        } else if (response.body().abroadKnowledgeDesc.equalsIgnoreCase("No ")) {
+                                            no.setChecked(true);
+                                        }
+
+                                    }
+                                    if (response.body().callbackDate != null && !response.body().callbackDate.isEmpty()) {
+                                        mEtOthers.setText(response.body().callbackDate);
+                                    }
+                                    if (response.body().visitDate != null && !response.body().visitDate.isEmpty()) {
+                                        mEtvisittext.setText(response.body().visitDate);
+                                    }
+                                    if (response.body().callOtheStatus != null && !response.body().callOtheStatus.isEmpty()) {
+                                        mEtotherstatus.setText(response.body().callOtheStatus);
+                                    }
+                                    if (response.body().motherOccupationSector != null && !response.body().motherOccupationSector.isEmpty()) {
+                                        if (response.body().motherOccupationSector.equalsIgnoreCase("Private ")) {
+                                            motherpvt.setChecked(true);
+                                        } else if (response.body().motherOccupationSector.equalsIgnoreCase("Govt")) {
+                                            mothergovt.setChecked(true);
+                                        }
+                                    }
+                                    if (response.body().motherJobdesc != null && !response.body().motherJobdesc.isEmpty()) {
+                                        mEtmotherdepartment.setText(response.body().motherJobdesc);
+                                    }
+
+                                    if (response.body().intrestedCountry != null && !response.body().intrestedCountry.isEmpty()) {
+                                        int count = 0;
+                                        for (String area : categories) {
+                                            count++;
+                                            if (area.equalsIgnoreCase(response.body().intrestedCountry)) {
+                                                break;
+                                            }
+                                        }
+                                        mSpinnerCountry.setSelection(count-1);
+                                    }
+
+                                    if (response.body().interbranch != null && !response.body().interbranch.isEmpty()) {
+                                        int count = 0;
+                                        for (String area : categoriesInterCourse) {
+                                            count++;
+                                            if (area.equalsIgnoreCase(response.body().interbranch)) {
+                                                break;
+                                            }
+                                        }
+
+                                        mSpinnerInterCourse.setSelection(count-1);
+                                    }
+                                    if (response.body().interIntrestedCourse != null && !response.body().interIntrestedCourse.isEmpty()) {
+
+                                        int count = 0;
+                                        for (String area : categoriesCourse) {
+                                            count++;
+                                            if (area.equalsIgnoreCase(response.body().interIntrestedCourse)) {
+                                                break;
+                                            }
+                                        }
+                                        mSpinnerInterInterestedCourse.setSelection(count-1);
+                                    }
+
+                                    if (response.body().state != null && !response.body().state.isEmpty()) {
+
+
+                                        int count = 0;
+                                        for (String area : states) {
+                                            count++;
+                                            if (area.equalsIgnoreCase(response.body().state)) {
+                                                break;
+                                            }
+                                        }
+                                        mSpinnerStates.setSelection(count-1);
+                                       // Log.e("statesposition", "" + spinnerstatesPosition);
+                                    }
+                                    if (response.body().siblings != null) {
+                                        mSpinnerChildren.setSelection(response.body().siblings);
+                                    }
+
+                                    if (response.body().entranceTestAttemts != null) {
+                                        mSpinnerinterentranceAttempts.setSelection(response.body().entranceTestAttemts);
+                                    }
+
+
+                                    if (response.body().leadfrom != null && !response.body().leadfrom.isEmpty()) {
+                                        mEtSource.setText(response.body().leadfrom);
+                                    }
+                                }
+
+
+                            })
+                                    .setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                            dialog.dismiss();
+
+                                        }
+                                    });
+
+                            // Create the AlertDialog object and return it
+                            builder.create().show();
+                        } else {
+
+
+                            //Log.e("contact",""+contactNumber);
+                            Toast.makeText(NewformActivity.this, "" + response.body().errorMessage, Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(NewformActivity.this, "Record Not Found", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<CheckResponse> call, Throwable t) {
+                    Toast.makeText(NewformActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
+
+    }
 
 
     public void onAddField(View v) {
@@ -3591,8 +4051,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                                     loadInfoData(mEtstdname.getText().toString(), gender, mEtLocation.getText().toString(), mEtAreaname.getText().toString(),
                                             mEtCity.getText().toString(),
                                             mSpinnerStates.getSelectedItem().toString(),
-                                            mEtfatherbussiness.getText().toString(),mEtmotherdepartment.getText().toString(),
-                                            mEtStdaltcontact.getText().toString(),mEtSource.getText().toString(),
+                                            mEtfatherbussiness.getText().toString(), mEtmotherdepartment.getText().toString(),
+                                            mEtcontactnumber.getText().toString(), mEtSource.getText().toString(),
                                             StudentQualification,
                                             mEttenthmarks.getText().toString(), mEttenthInterestdCourse.getText().toString(), mEttenthinterestedbranch.getText().toString(),
                                             mSpinnerInterCourse.getSelectedItem().toString(), mEtinterCourse.getText().toString(), mEtintermarks.getText().toString(),
@@ -3612,9 +4072,9 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                                             mEtremtext.getText().toString(), mEtremainderdate.getText().toString(), mEtOthers.getText().toString(), userName,
                                             Knowledgeonabroad, Followup,
                                             int_status, mEtvisitmessage.getText().toString(), mEtGovtjobtitle.getText().toString(), intrestedareas, mEtmotherincome.getText().toString()
-                                            , mEtotherstatus.getText().toString(),mEttenthEntranceQual.getText().toString(),MotherOcupation,mEtcounsul.getText().toString(),
-                                            sibilingsabroad,officevisit,mEtfeedback.getText().toString(),Knowledgeonabroad,mEtfatherbussiness.getText().toString(),
-                                            motherjobsector,mEtmotherdepartment.getText().toString());
+                                            , mEtotherstatus.getText().toString(), mEttenthEntranceQual.getText().toString(), MotherOcupation, mEtcounsul.getText().toString(),
+                                            sibilingsabroad, officevisit, mEtfeedback.getText().toString(), Knowledgeonabroad, mEtfatherbussiness.getText().toString(),
+                                            motherjobsector, mEtmotherdepartment.getText().toString());
                                     /* InfoActivity.this.finish();*/
                                 }
                             }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -3633,12 +4093,11 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         mBtnUpload.setVisibility(View.VISIBLE);
 
 
-
     }
 
 
     private void loadInfoData(String LeadName, String Gender, String Country, String AreaName, String City,
-                              String State,String FatherJobdescription,String MotherJobdesc, String ContactNumber, String Leadfrom,String Qalification, String SSCmarks,
+                              String State, String FatherJobdescription, String MotherJobdesc, String ContactNumber, String Leadfrom, String Qalification, String SSCmarks,
                               String sscfuturecourse, String SSCintrestedBranch, String Interbranch,
                               String mEtinterCourse, String Marks, String InterIntrestedCourse, String mEtinterinterestCourseother,
                               String InterPassyear, String Graduationbranch, String GraduationUniversity,
@@ -3651,12 +4110,12 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                               String SubCast, String mEtsubcaste, String StateOfintrest,
                               String localBudget, String AbroadBudget, /*String VisitStatus,*/ String VisitDate, String VisitType,
                               String CourseType,
-                              String CallStatus,  String alternativecontact,String FinalFeedBack, String ReminderMessage, String ReminderdateTime,
+                              String CallStatus, String alternativecontact, String FinalFeedBack, String ReminderMessage, String ReminderdateTime,
                               String CallbackDate, String SalesName,
                               String knowledgeonabroad, String FallowUp, int int_status,
                               String VisitMsg, String FatherJob, String Canditintrests, String mIncomeinLaks, String CallOtheStatus, String EntranceQualification,
-                              String MotherOccupationDesc,String ConsutancyDescr, String StudyinAbroadDesc,String VisitDescriptiopn,String FeedBackDescription,
-                              String AbroadKnowledgeDesc ,String FatherOcuDesc,String MotherOccupationSector ,String MotherOccupationSectorDesc) {
+                              String MotherOccupationDesc, String ConsutancyDescr, String StudyinAbroadDesc, String VisitDescriptiopn, String FeedBackDescription,
+                              String AbroadKnowledgeDesc, String FatherOcuDesc, String MotherOccupationSector, String MotherOccupationSectorDesc) {
 
 
         sharedPref = new SharedPref(getApplicationContext());
@@ -3673,8 +4132,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         newPostDataResponse.state = State;
         newPostDataResponse.fatherJobdescription = FatherJobdescription;
         newPostDataResponse.motherJobdesc = MotherJobdesc;
-        newPostDataResponse.contactNumber = phonenumber;
-        newPostDataResponse.leadfrom=Leadfrom;
+        newPostDataResponse.contactNumber = ContactNumber;
+        newPostDataResponse.leadfrom = Leadfrom;
         newPostDataResponse.qalification = Qalification;
 
         try {
@@ -3788,7 +4247,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         }
 
 
-        newPostDataResponse.visitStatus=true;
+        newPostDataResponse.visitStatus = true;
 
 
         //  newPostDataResponse.visitStatus = Boolean.valueOf(VisitStatus);
@@ -3796,7 +4255,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         newPostDataResponse.visitType = VisitType;
         newPostDataResponse.courseType = CourseType;
         newPostDataResponse.callStatus = CallStatus;
-        newPostDataResponse.alternativecontact=alternativecontact;
+        newPostDataResponse.alternativecontact = alternativecontact;
         newPostDataResponse.finalFeedBack = FinalFeedBack;
         newPostDataResponse.salesName = userName;
         newPostDataResponse.fallowUp = Boolean.parseBoolean(FallowUp);
@@ -3828,64 +4287,61 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
         }*/
         //  newPostDataResponse.reminderStatus = false;
 
-        if (chkyes.isChecked())
-        {
+        if (chkyes.isChecked()) {
             newPostDataResponse.reminderStatus = true;
-        }
-        else {
+        } else {
             newPostDataResponse.reminderStatus = false;
         }
 
-        if (rbcallback.isChecked()){
+        if (rbcallback.isChecked()) {
 
-            newPostDataResponse.callBackStatus=true;
+            newPostDataResponse.callBackStatus = true;
 
-        }else
-        {
+        } else {
             newPostDataResponse.callBackStatus = false;
         }
-        newPostDataResponse.entranceQualification =EntranceQualification;
-        newPostDataResponse.motherOccupationDesc=MotherOccupationDesc;
-        newPostDataResponse.consutancyDescr =ConsutancyDescr;
+        newPostDataResponse.entranceQualification = EntranceQualification;
+        newPostDataResponse.motherOccupationDesc = MotherOccupationDesc;
+        newPostDataResponse.consutancyDescr = ConsutancyDescr;
         newPostDataResponse.studyinAbroadDesc = StudyinAbroadDesc;
         newPostDataResponse.visitDescriptiopn = VisitDescriptiopn;
-        newPostDataResponse.feedBackDescription =FeedBackDescription;
-        newPostDataResponse.abroadKnowledgeDesc =AbroadKnowledgeDesc;
+        newPostDataResponse.feedBackDescription = FeedBackDescription;
+        newPostDataResponse.abroadKnowledgeDesc = AbroadKnowledgeDesc;
         newPostDataResponse.fatherOcuDesc = FatherOcuDesc;
-        newPostDataResponse.motherOccupationSector= MotherOccupationSector;
+        newPostDataResponse.motherOccupationSector = MotherOccupationSector;
         newPostDataResponse.motherOccupationSectorDesc = MotherOccupationSectorDesc;
 
 
-        Log.e("New updateInfoResponse",""+newPostDataResponse.toString());
+        Log.e("New updateInfoResponse", "" + newPostDataResponse.toString());
 
         //set all remaining fields
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<NewPostDataResponse> Call=apiInterface.getPostDataResponse(newPostDataResponse);
+        Call<NewPostDataResponse> Call = apiInterface.getPostDataResponse(newPostDataResponse);
         Call.enqueue(new Callback<NewPostDataResponse>() {
             @Override
             public void onResponse(Call<NewPostDataResponse> call, Response<NewPostDataResponse> response) {
 
-                if(response!=null && response.isSuccessful()){
-                    Log.e("upload data","upload successfullyyy......");
-                    if(response.body().recardStatus){
+                if (response != null && response.isSuccessful()) {
+                    Log.e("upload data", "upload successfullyyy......");
+                    if (response.body().recardStatus) {
 
-                        Toast.makeText(NewformActivity.this, ""+response.body().errorMessage, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewformActivity.this, "" + response.body().errorMessage, Toast.LENGTH_SHORT).show();
                         //Log.e("upload data","upload successfullyyy......");
 
                         startActivity(new Intent(NewformActivity.this, DashBoardActivity.class));
                         finish();
 
-                    }else{
-                        Toast.makeText(NewformActivity.this, ""+response.body().errorMessage, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(NewformActivity.this, "" + response.body().errorMessage, Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Toast.makeText(NewformActivity.this, "Something went wrong,try again later", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<NewPostDataResponse> call, Throwable t) {
-                Toast.makeText(NewformActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(NewformActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         /*
@@ -3898,30 +4354,29 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
 
         String item = parent.getItemAtPosition(position).toString();
-        String item2= parent.getItemAtPosition(position).toString();
-        if (item.equalsIgnoreCase("Others")){
+        String item2 = parent.getItemAtPosition(position).toString();
+        if (item.equalsIgnoreCase("Others")) {
             mEtinterCourse.setVisibility(View.VISIBLE);
             mEtinterinterestCourseother.setVisibility(View.VISIBLE);
             mEtCountryOthers.setVisibility(View.VISIBLE);
-        } else if (item.equalsIgnoreCase("1")){
+        } else if (item.equalsIgnoreCase("1")) {
 
             mEtPreviousmarks.setVisibility(View.GONE);
             mEtattempeExpectedmarks.setVisibility(View.VISIBLE);
             mEtmarksobtained.setVisibility(View.VISIBLE);
-        }else if (item.equalsIgnoreCase("2")){
+        } else if (item.equalsIgnoreCase("2")) {
             mEtPreviousmarks.setVisibility(View.VISIBLE);
             mEtattempeExpectedmarks.setVisibility(View.VISIBLE);
             mEtmarksobtained.setVisibility(View.VISIBLE);
-        }else if (item.equalsIgnoreCase("3")){
+        } else if (item.equalsIgnoreCase("3")) {
             mEtPreviousmarks.setVisibility(View.VISIBLE);
             mEtattempeExpectedmarks.setVisibility(View.VISIBLE);
             mEtmarksobtained.setVisibility(View.VISIBLE);
-        }else if (item.equalsIgnoreCase("4")){
+        } else if (item.equalsIgnoreCase("4")) {
             mEtPreviousmarks.setVisibility(View.VISIBLE);
             mEtattempeExpectedmarks.setVisibility(View.VISIBLE);
             mEtmarksobtained.setVisibility(View.VISIBLE);
-        }else
-        {
+        } else {
             mEtPreviousmarks.setVisibility(View.GONE);
             mEtattempeExpectedmarks.setVisibility(View.GONE);
             mEtmarksobtained.setVisibility(View.GONE);
@@ -3963,10 +4418,8 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-
-
     @Override
-    public void onRequestPermissionsResult ( int requestCode, String[] permissions, int[] grantResults){
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
         switch (requestCode) {
             case 1: {
@@ -3980,9 +4433,9 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
                            textView.setText(getCallDetails(context));*/
 
-                          mEtcontactnumber.setText(getCallDetails(context).get(0).getNumber());
+                        mEtcontactnumber.setText(getCallDetails(context).get(0).getNumber());
 
-                          Log.e("numbet",""+getCallDetails(context).get(0).getNumber());
+                        Log.e("numbet", "" + getCallDetails(context).get(0).getNumber());
 
                        /* incomingcallAdapter = new IncomingcallAdapter(getApplicationContext(),getCallDetails(context));
                         mRecycler.setAdapter(incomingcallAdapter);*/
@@ -4037,7 +4490,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
             /*sb.append("\n Phone Number :" + phnumber + "\n Call Type :" + dir + "\n Date :" + calldate);
             sb.append("\n---------------------\n");
 */
-            list.add(new IncomingResponse(phnumber,calldate,calltype,dir));
+            list.add(new IncomingResponse(phnumber, calldate, calltype, dir));
 
 
         }
@@ -4052,11 +4505,10 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onResume() {
 
-        getCallDetails(context);
+        mEtcontactnumber.setText(getCallDetails(context).get(0).getNumber());
 
         super.onResume();
     }
-
 
 
     @Override

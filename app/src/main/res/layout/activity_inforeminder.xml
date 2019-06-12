@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context=".activities.InfoActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/tool"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_46sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvinfosname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:fontFamily="@font/opensans_bold"
+                    android:text="Student Name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <EditText
+                    android:id="@+id/etinfosname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/opensans_bold"
+                    android:hint="Enter Student name"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/_13sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvinfostatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_19sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:text="Status"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_marginStart="@dimen/_8sdp">
+
+                            <RadioGroup
+                                android:id="@+id/radioGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="0dp"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <RadioButton
+                                    android:id="@+id/rbintersted"
+                                    android:layout_width="@dimen/_120sdp"
+                                    android:layout_height="@dimen/_25sdp"
+                                    android:layout_weight="0.7"
+                                    android:checked="false"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="Int"
+                                    android:textSize="@dimen/_15sdp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbnotinterested"
+                                    android:layout_width="@dimen/_120sdp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_weight="0.8"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="Not Int"
+                                    android:textSize="@dimen/_15sdp" />
+
+
+                                <RadioButton
+                                    android:id="@+id/rbcallback"
+                                    android:layout_width="@dimen/_130sdp"
+                                    android:layout_height="@dimen/_20sdp"
+
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_marginEnd="@dimen/_20sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="Call Back"
+                                    android:textSize="@dimen/_15sdp" />
+                            </RadioGroup>
+
+                            <RadioGroup
+                                android:id="@+id/radioGroup2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:layout_below="@+id/radioGroup"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="0dp"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <RadioButton
+                                    android:id="@+id/rbnottresponding"
+                                    android:layout_width="@dimen/_97sdp"
+                                    android:layout_height="@dimen/_23sdp"
+                                    android:layout_marginStart="@dimen/_2sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="NR"
+                                    android:textSize="@dimen/_15sdp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbswitchoff"
+                                    android:layout_width="@dimen/_70sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_marginStart="@dimen/_25sdp"
+                                    android:layout_marginLeft="@dimen/_4sdp"
+                                    android:layout_marginEnd="@dimen/_2sdp"
+                                    android:layout_marginRight="@dimen/_4sdp"
+                                    android:layout_weight="0.5"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="SO"
+                                    android:textSize="@dimen/_15sdp" />
+
+
+                                <RadioButton
+                                    android:id="@+id/rboutofcoverage"
+                                    android:layout_width="@dimen/_127sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_marginStart="@dimen/_25sdp"
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:scaleX="0.7"
+                                    android:scaleY="0.7"
+                                    android:text="OC"
+                                    android:textSize="@dimen/_15sdp" />
+                            </RadioGroup>
+
+                            <RadioButton
+                                android:id="@+id/rbothers"
+                                android:layout_width="@dimen/_77sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/radioGroup2"
+                                android:layout_marginStart="@dimen/_3sdp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="@dimen/_20sdp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/roboto_medium"
+                                android:scaleX="0.7"
+                                android:scaleY="0.7"
+                                android:text="Others"
+                                android:textSize="@dimen/_15sdp" />
+
+                            <EditText
+                                android:id="@+id/etinfootherspecify"
+                                android:layout_width="@dimen/_200sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_below="@+id/radioGroup2"
+                                android:layout_marginStart="@dimen/_90sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:focusable="false"
+                                android:hint="Please Specify"
+                                android:singleLine="true"
+                                android:textSize="@dimen/_10sdp" />
+
+
+                </RelativeLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinforem"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Remainder"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinforemdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:background="@android:color/transparent"
+                    android:focusable="false"
+                    android:fontFamily="@font/opensans_regular"
+                    android:hint="Set Remainder Date"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinforempreviouscallstatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Previous Call Status "
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvrempreviouscallstatusset"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+
+                    android:textSize="@dimen/_10sdp"
+                   android:fontFamily="@font/roboto_medium" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinforempreviousdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Previous Remainder Date"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvinforempreviousdateset"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:fontFamily="@font/roboto_medium"
+
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvinforemtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Remainder Text"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etinforemtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/opensans_regular"
+                    android:hint="Enter Reminder Text"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvinforempreviousremarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Previous Remarks"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvinforempreviousremaksset"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/opensans_regular"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_64sdp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textColorHint="@color/grrey">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/etinfoRemarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_47sdp"
+                        android:background="@android:color/transparent"
+                        android:hint="Remarks"
+                        android:inputType="textMultiLine"
+                        android:maxLines="5"
+                        android:minLines="1"
+                        android:textColor="#333" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btninfosubmit"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_51sdp"
+                    android:layout_marginStart="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_60sdp"
+                    android:layout_marginBottom="@dimen/_47sdp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:text="Submit"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

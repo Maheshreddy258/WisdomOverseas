@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/tool"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_120sdp"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtlead"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Choose Status of the Student: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/_15sdp" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGrouplead"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="@dimen/_8sdp">
+
+            <RadioButton
+                android:id="@+id/close"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:scaleX="0.7"
+                android:fontFamily="@font/roboto_medium"
+                android:scaleY="0.9"
+                android:text="Close"
+                android:textSize="@dimen/_15sdp" />
+
+            <RadioButton
+                android:id="@+id/process"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:scaleX="0.7"
+                android:scaleY="0.9"
+                android:text="Processing"
+                android:textSize="@dimen/_15sdp" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnstatus"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_51sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_90sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:background="@drawable/mybutton"
+            android:fontFamily="@font/opensans_regular"
+            android:text="SUBMIT"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_15sdp" />
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

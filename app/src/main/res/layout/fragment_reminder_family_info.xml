@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FamilyInfoFragment"
+    android:id="@+id/familyinfo">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_6sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvfamilyinfopname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Father Name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etfamilyinfopname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Father name"
+                    android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvfamilyinfoparentphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Parent Contact Number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <EditText
+                    android:id="@+id/etfamilyinfoparentphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Parent Contact number"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvfamilyinfoparentaltphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Parent Alternative Contact Number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <EditText
+                    android:id="@+id/etfamilyinfoparentaltphno"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Parent alternative Contact number"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
+                <TextView
+                    android:id="@+id/tvfamilyinfocupation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Father Ocupation"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/familyradioGroup4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/job"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Job "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/bussiness"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Bussiness"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/farmer"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Farmer"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvfamilyinfosector"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Sector"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/familyradioGroup5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/pvt"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Private "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/govt"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Govt"/>
+                    <RadioButton
+                        android:id="@+id/own"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="own"
+                        android:textSize="@dimen/_15sdp" />
+
+
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvfamilyinfoincomestatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Income Status"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/familyradioGroup6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/low"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="Low "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/mid"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="Mid"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/high"
+                        android:layout_width="@dimen/_150sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="High"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+                <TextView
+                    android:id="@+id/tvfamilyinfoincomeinlakhs"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Income In Lakhs"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etfamilyinfoincomeinlakhs"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:hint="Enter Income In Lakhs"
+                    android:inputType="number"
+                    android:maxLength="25"
+                    android:background="@android:color/transparent"
+                    android:singleLine="true"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <TextView
+                    android:id="@+id/tvfamilyinfocaste"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Caste"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:id="@+id/familyradioGroup7"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/oc"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="OC "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/bc"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="BC"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/sc"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="SC"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/st"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="ST"
+                        android:textSize="@dimen/_15sdp" />
+
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/familyradioGroup8"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_9sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <RadioButton
+                        android:id="@+id/A"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:scaleX="0.7"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleY="0.7"
+                        android:text="A "
+                        android:textSize="@dimen/_15sdp" />
+
+                    <RadioButton
+                        android:id="@+id/B"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="B"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/c"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="C"
+                        android:textSize="@dimen/_15sdp" />
+                    <RadioButton
+                        android:id="@+id/D"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:scaleX="0.7"
+                        android:scaleY="0.7"
+                        android:text="D"
+                        android:textSize="@dimen/_15sdp" />
+
+                </RadioGroup>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+                <TextView
+                    android:id="@+id/tvfamilyinfochilds"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_19sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="How many Childrens?"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/familyinfospinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:textSize="@dimen/_5sdp"
+                    android:drawSelectorOnTop="true"
+                    android:layout_centerHorizontal="true">
+
+                </Spinner>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_84sdp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btnfamilyinfosubmit"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_41sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_47sdp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:text="Submit"
+                        android:layout_weight="1"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/btnfamilyinfocancel"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_41sdp"
+                        android:layout_marginEnd="@dimen/_13sdp"
+                        android:layout_marginStart="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_30sdp"
+                        android:layout_marginBottom="@dimen/_47sdp"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:text="Cancel"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

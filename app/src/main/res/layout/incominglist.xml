@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_70sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvcallslist"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_61sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_1sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <ImageView
+                android:id="@+id/imgstd"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="0.5"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toStartOf="@id/tvStdname"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/tvStdname"
+                app:layout_constraintTop_toTopOf="@id/tvStdname"
+                app:srcCompat="@drawable/profileimg" />
+
+
+            <LinearLayout
+                android:layout_width="@dimen/_67sdp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+                <TextView
+                    android:id="@+id/tvnumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:maxLength="15"
+                    android:singleLine="true"
+                    android:text="TextView"
+                    android:textSize="@dimen/_13sdp" />
+
+
+                <TextView
+                    android:id="@+id/tvcalltype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:maxLength="12"
+                    android:singleLine="true"
+                    android:text="TextView"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvdate"
+                android:layout_width="@dimen/_47sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/opensans_regular"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:text="TextView"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <ImageView
+                android:id="@+id/incomingimgsearch"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_search" />
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

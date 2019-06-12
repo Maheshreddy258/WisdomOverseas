@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mahesh.wisdomoverseas.activities.RecordActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/tool"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvreordarea"
+        android:text=" Record Area"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_13sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_64sdp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Record"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_43sdp"
+            android:id="@+id/btnRecord" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop Record"
+            android:layout_marginStart="@dimen/_43sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:id="@+id/btnStopRecord" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Play Area"
+        android:fontFamily="@font/roboto_medium"
+        android:id="@+id/tvplayarea"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_13sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_64sdp"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_13sdp">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_43sdp"
+        android:id="@+id/btnplayRecord" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:layout_marginStart="@dimen/_43sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:id="@+id/btnStopplay" />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Call Recordings Upload.."
+        android:fontFamily="@font/roboto_medium"
+        android:id="@+id/tvupload"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_13sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_94sdp"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_13sdp">
+
+        <Button
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_43sdp"
+            android:id="@+id/btnselect" />
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_43sdp"
+            android:id="@+id/btnupload" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:id="@+id/tvfilename"
+        android:textColor="@color/mandatory"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_13sdp"/>
+
+</LinearLayout>

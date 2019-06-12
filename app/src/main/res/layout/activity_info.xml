@@ -60,13 +60,42 @@
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:fontFamily="@font/opensans_bold"
                     android:hint="Enter Student name"
-
                     android:textSize="@dimen/_13sdp" />
 
                 <View
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:background="#c0c0c0" />
+
+
+
+                <TextView
+                    android:id="@+id/tvinfosource"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:text="Source"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/opensans_bold" />
+
+                <EditText
+                    android:id="@+id/etinfosource"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_13sdp"
+                    android:background="@android:color/transparent"
+                    android:hint="Enter Source"
+                    android:textSize="@dimen/_13sdp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="#c0c0c0" />
+
+
 
 
                 <TextView
@@ -1420,7 +1449,7 @@
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:hint="Enter Bussiness"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="50"
                     android:background="@android:color/transparent"
                     android:singleLine="true"
                     android:textSize="@dimen/_10sdp" />
@@ -1499,7 +1528,7 @@
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:hint="Enter Department"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="50"
                     android:background="@android:color/transparent"
                     android:singleLine="true"
                     android:textSize="@dimen/_10sdp" />
@@ -1632,7 +1661,7 @@
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:hint="Enter Department"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="50"
                     android:background="@android:color/transparent"
                     android:singleLine="true"
                     android:textSize="@dimen/_10sdp" />

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_margin="3dp"
+    android:weightSum="3"
+    tools:context=".activities.RecclerviewItem">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:id="@+id/cv9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="514dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tcstdname"
+                    android:layout_width="@dimen/_101sdp"
+                    android:layout_height="@dimen/_22sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/student_name"
+                    android:maxLength="7"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    tools:fontFamily="@font/roboto_medium" />
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/_160sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:id="@+id/tvapplidt"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_23sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/opensans_regular"
+                        android:text="@string/application_date"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tvprodate"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_23sdp"
+                        android:text="@string/date"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/roboto_medium"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:id="@+id/tvremark"
+                        android:layout_width="@dimen/_64sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:text="@string/remarks"
+                        android:fontFamily="@font/opensans_regular"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tvpremark2"
+                        android:layout_width="@dimen/_280sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:layout_marginStart="@dimen/_9sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:text="@string/please_submit_the_concerened_documents"
+                        android:maxLength="7"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:orientation="vertical"
+                    >
+
+
+                    <TextView
+                        android:id="@+id/tvporstatus"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:text="@string/status"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tvupdate"
+                        android:layout_width="128dp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:fontFamily="@font/opensans_regular"
+                        android:text="@string/update"
+                        android:singleLine="true"
+                        android:textColor="@color/employee"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgprophone"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_41sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_local_phone_black_24dp"
+                    android:contentDescription="@string/todo" />
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

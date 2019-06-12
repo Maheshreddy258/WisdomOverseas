@@ -242,7 +242,7 @@
             android:layout_marginStart="@dimen/_9sdp"
             android:layout_marginTop="@dimen/_13sdp"
             android:layout_marginEnd="@dimen/_5sdp"
-            android:text="STATE"
+            android:text="BRANCH/AREA"
             android:textColor="@color/grrey"
             android:textStyle="bold"
             android:textSize="@dimen/_10sdp"

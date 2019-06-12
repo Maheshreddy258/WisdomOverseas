@@ -124,7 +124,7 @@
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:hint="Count"
+                        android:text="0"
                         android:textAllCaps="true"
                         android:textColor="@color/bg"
                         android:textSize="@dimen/_9sdp" />
