@@ -559,7 +559,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
 
         mSpinnerStates.setOnItemSelectedListener(this);
-        final List<String> states = new ArrayList<String>();
+         states = new ArrayList<String>();
 
         states.add("---select---");
         states.add("Andhra Pradesh");
@@ -606,7 +606,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
 
         mSpinnerInterCourse.setOnItemSelectedListener(this);
-        final List<String> categoriesInterCourse = new ArrayList<String>();
+       categoriesInterCourse = new ArrayList<String>();
 
         categoriesInterCourse.add("---select---");
         categoriesInterCourse.add("BiPC");
@@ -621,7 +621,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
 
 
         mSpinnerInterInterestedCourse.setOnItemSelectedListener(this);
-        final List<String> categoriesCourse = new ArrayList<String>();
+       categoriesCourse = new ArrayList<String>();
 
         categoriesCourse.add("---select---");
         categoriesCourse.add("MBBS");
@@ -3546,7 +3546,7 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                                         mEttenthEntranceExam.setText(response.body().entrenceTestName);
                                     }
                                     if (response.body().marks != null) {
-                                        mEtintermarks.setText("" + response.body().expectedMarks);
+                                        mEtintermarks.setText("" + response.body().marks);
                                     }
                                     if (response.body().interbranch != null && !response.body().interbranch.isEmpty()) {
                                         mEtinterCourse.setText(response.body().interbranch);
@@ -3823,15 +3823,15 @@ public class NewformActivity extends AppCompatActivity implements View.OnClickLi
                                     }
 
                                     if (response.body().interbranch != null && !response.body().interbranch.isEmpty()) {
-                                        int count = 0;
+                                        int count1 = 0;
                                         for (String area : categoriesInterCourse) {
-                                            count++;
+                                            count1++;
                                             if (area.equalsIgnoreCase(response.body().interbranch)) {
                                                 break;
                                             }
                                         }
 
-                                        mSpinnerInterCourse.setSelection(count-1);
+                                        mSpinnerInterCourse.setSelection(count1-1);
                                     }
                                     if (response.body().interIntrestedCourse != null && !response.body().interIntrestedCourse.isEmpty()) {
 

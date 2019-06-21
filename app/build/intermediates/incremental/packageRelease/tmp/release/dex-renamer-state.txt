@@ -1,0 +1,4 @@
+#Fri May 31 16:49:00 IST 2019
+base.0=D\:\\Android work space\\Wisdom final copy\\WisdomOverseasrelease\\WisdomOverseas\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+path.0=classes.dex
+renamed.0=classes.dex
